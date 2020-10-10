@@ -1,17 +1,17 @@
 import {getRandomInteger, getRandomArrayItem} from "../utils";
 
 const image = [
-  `avatar.svg`,
   `avatar-angelina.jpg`,
   `avatar-max.jpg`,
+  `avatar.svg`,
 ];
 
 const names = [
-  `Max`,
   `Anna`,
   `Eugene`,
-  `Julia`,
   `Jack`,
+  `Julia`,
+  `Max`,
 ];
 
 const descriptions = [
@@ -23,19 +23,19 @@ const descriptions = [
 
 const dates = [
   `April 2019`,
+  `August 2019`,
   `December 2019`,
   `January 2020`,
   `May 2018`,
-  `August 2019`
 ];
 
 const generateReview = () => {
   return {
+    date: getRandomArrayItem(dates),
+    description: getRandomArrayItem(descriptions),
+    raiting: getRandomInteger(0, 5),
     userImage: getRandomArrayItem(image),
     userName: getRandomArrayItem(names),
-    raiting: getRandomInteger(0, 5),
-    description: getRandomArrayItem(descriptions),
-    date: getRandomArrayItem(dates),
   };
 };
 

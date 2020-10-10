@@ -1,5 +1,5 @@
+import {mainPageTypes} from "../prop-types";
 import React from "react";
-import PropTypes from "prop-types";
 
 const MainPage = (props) => {
   const {placesAmount} = props;
@@ -265,8 +265,6 @@ const MainPage = (props) => {
   );
 };
 
-MainPage.propTypes = {
-  placesAmount: PropTypes.number.isRequired,
-};
+MainPage.propTypes = mainPageTypes;
 
 export default MainPage;
