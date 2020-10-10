@@ -1,0 +1,46 @@
+import {getRandomInteger, getRandomArrayItem} from "../utils";
+
+const image = [
+  `avatar.svg`,
+  `avatar-angelina.jpg`,
+  `avatar-max.jpg`,
+];
+
+const names = [
+  `Max`,
+  `Anna`,
+  `Eugene`,
+  `Julia`,
+  `Jack`,
+];
+
+const descriptions = [
+  `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.`,
+  `An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery`,
+  `Beautiful & luxurious apartment at great location`,
+  `Nice, cozy, warm big bed apartment`,
+];
+
+const dates = [
+  `April 2019`,
+  `December 2019`,
+  `January 2020`,
+  `May 2018`,
+  `August 2019`
+];
+
+const generateReview = () => {
+  return {
+    userImage: getRandomArrayItem(image),
+    userName: getRandomArrayItem(names),
+    raiting: getRandomInteger(0, 5),
+    description: getRandomArrayItem(descriptions),
+    date: getRandomArrayItem(dates),
+  };
+};
+
+const generateReviewsList = (amount) => {
+  return new Array(amount).fill(``).map(generateReview);
+};
+
+export {generateReviewsList};
