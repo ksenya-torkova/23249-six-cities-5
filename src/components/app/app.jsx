@@ -7,16 +7,21 @@ import React from "react";
 import Room from "../room/room";
 
 const App = (props) => {
-  const {placesAmount} = props;
+  const {placesAmount, mainRooms, otherPlaces} = props;
 
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/" exact>
-          <MainPage placesAmount = {placesAmount} />
+          <MainPage
+            placesAmount = {placesAmount}
+            rooms = {mainRooms}
+          />
         </Route>
         <Route path="/offer/:id" exact>
-          <Room />
+          <Room
+            rooms = {otherPlaces}
+          />
         </Route>
         <Route path="/favorites" exact>
           <Favorites />

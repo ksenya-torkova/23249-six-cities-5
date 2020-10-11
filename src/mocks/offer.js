@@ -1,4 +1,5 @@
 import {getRandomInteger, getRandomArrayItem} from "../utils";
+import {nanoid} from "nanoid";
 
 const photos = [
   `apartment-01.jpg`,
@@ -6,15 +7,14 @@ const photos = [
   `apartment-03.jpg`,
   `room.jpg`,
   `room.jpg`,
-  `studio-01.jpg`,
 ];
 
 const types = [
   `Apartment`,
-  `bungalow`,
-  `hostel`,
+  `Bungalow`,
+  `Hostel`,
   `Private room`,
-  `villa`,
+  `Villa`,
 ];
 
 const names = [
@@ -27,6 +27,7 @@ const names = [
 
 const generateRoom = () => {
   return {
+    id: nanoid(),
     image: getRandomArrayItem(photos),
     isBookmarked: Math.random() > 0.5,
     isPremium: Math.random() > 0.5,
