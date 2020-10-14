@@ -1,22 +1,27 @@
-import React from "react";
-import PropTypes from "prop-types";
-import MainPage from "../main-page/main-page";
+import {appTypes} from "../prop-types";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
-import Login from "../login/login";
 import Favorites from "../favorites/favorites";
+import Login from "../login/login";
+import MainPage from "../main-page/main-page";
+import React from "react";
 import Room from "../room/room";
 
 const App = (props) => {
-  const {placesAmount} = props;
+  const {placesAmount, mainRooms, otherPlaces} = props;
 
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/" exact>
-          <MainPage placesAmount = {placesAmount} />
+          <MainPage
+            placesAmount = {placesAmount}
+            rooms = {mainRooms}
+          />
         </Route>
         <Route path="/offer/:id" exact>
-          <Room />
+          <Room
+            rooms = {otherPlaces}
+          />
         </Route>
         <Route path="/favorites" exact>
           <Favorites />
@@ -38,8 +43,6 @@ const App = (props) => {
   );
 };
 
-App.propTypes = {
-  placesAmount: PropTypes.number.isRequired,
-};
+App.propTypes = appTypes;
 
 export default App;
