@@ -1,6 +1,7 @@
-import {mainPageTypes} from "../prop-types";
+import {mainPageTypes} from "../../prop-types";
 import CardList from "../cards-list/cards-list";
 import React from "react";
+import Map from "../map/map";
 
 const MainPage = (props) => {
   const {placesAmount, rooms} = props;
@@ -95,7 +96,9 @@ const MainPage = (props) => {
 
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <Map
+                offers={rooms}
+              />
             </div>
           </div>
         </div>
