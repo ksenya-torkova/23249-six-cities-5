@@ -1,4 +1,4 @@
-import {appTypes} from "../prop-types";
+import {appTypes} from "../../prop-types";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import Favorites from "../favorites/favorites";
 import Login from "../login/login";
