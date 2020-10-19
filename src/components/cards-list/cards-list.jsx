@@ -1,4 +1,4 @@
-import {cardListTypes} from "../prop-types";
+import {cardListTypes} from "../../prop-types";
 import PlaceCard from "../place-card/place-card";
 import React, {PureComponent} from "react";
 

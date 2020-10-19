@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import {placeCardTypes} from "../prop-types";
+import {placeCardTypes} from "../../prop-types";
 import React from "react";
 
 const PlaceCard = (props) => {

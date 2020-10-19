@@ -1,4 +1,4 @@
-import {roomTypes} from "../prop-types";
+import {roomTypes} from "../../prop-types";
 import PlaceCard from "../place-card/place-card";
 import React from "react";
 import ReviewForm from "../review-form/review-form";
