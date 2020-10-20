@@ -21,12 +21,28 @@ const cardListTypes = {
   rooms: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
 };
 
+const citiesPlaceCardTypes = {
+  cardData: PropTypes.shape(cardData).isRequired,
+};
+
+const favoriteTypes = {
+  rooms: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
+};
+
+const favoritesCardTypes = {
+  cardData: PropTypes.shape(cardData).isRequired,
+};
+
 const mainPageTypes = {
   placesAmount: PropTypes.number.isRequired,
 };
 
 const mapTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
+};
+
+const nearPlaceCard = {
+  cardData: PropTypes.shape(cardData).isRequired,
 };
 
 const placeCardTypes = {
@@ -39,4 +55,15 @@ const roomTypes = {
   rooms: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
 };
 
-export {appTypes, cardListTypes, mainPageTypes, mapTypes, placeCardTypes, roomTypes};
+export {
+  appTypes,
+  cardListTypes,
+  citiesPlaceCardTypes,
+  favoriteTypes,
+  favoritesCardTypes,
+  mainPageTypes,
+  mapTypes,
+  nearPlaceCard,
+  placeCardTypes,
+  roomTypes
+};

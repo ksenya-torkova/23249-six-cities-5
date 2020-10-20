@@ -1,5 +1,5 @@
 import {cardListTypes} from "../../prop-types";
-import PlaceCard from "../place-card/place-card";
+import CitiesPlaceCard from "../cities-place-card/cities-place-card";
 import React, {PureComponent} from "react";
 
 class CardList extends PureComponent {
@@ -18,9 +18,7 @@ class CardList extends PureComponent {
       <div className="cities__places-list places__list tabs__content">
 
         {rooms.map((room) => (
-          <PlaceCard
-            additionalCardClass = {`cities__place-card`}
-            additionalImageClass = {`cities__image-wrapper`}
+          <CitiesPlaceCard
             cardData = {room}
             key = {room.id}
             onMouseEnter = {() => {

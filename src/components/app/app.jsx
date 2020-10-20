@@ -24,7 +24,9 @@ const App = (props) => {
           />
         </Route>
         <Route path="/favorites" exact>
-          <Favorites />
+          <Favorites
+            rooms = {mainRooms}
+          />
         </Route>
         <Route path="/login" exact>
           <Login />

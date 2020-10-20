@@ -1,5 +1,5 @@
 import {roomTypes} from "../../prop-types";
-import PlaceCard from "../place-card/place-card";
+import NearPlaceCard from "../near-places-card/near-places-card";
 import React from "react";
 import ReviewForm from "../review-form/review-form";
 
@@ -186,13 +186,11 @@ const Room = (props) => {
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
             <div className="near-places__list places__list">
               {rooms.map((room) => (
-                <PlaceCard
-                  additionalCardClass = {`near-places__card`}
-                  additionalImageClass = {`near-places__image-wrapper`}
+                <NearPlaceCard
                   cardData = {room}
                   key = {room.id}
-                  onMouseEnter = {() => {}}
-                />
+                >
+                </NearPlaceCard>
               ))
               }
 
