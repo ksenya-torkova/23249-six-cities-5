@@ -1,6 +1,11 @@
 import {getRandomInteger, getRandomArrayItem} from "../utils";
 import {nanoid} from "nanoid";
 
+const cities = [
+  `Amsterdam`,
+  `Cologne`,
+];
+
 const locations = [
   [52.3909553943508, 4.85309666406198],
   [52.369553943508, 4.85309666406198],
@@ -34,6 +39,7 @@ const types = [
 
 const generateRoom = () => {
   return {
+    city: getRandomArrayItem(cities),
     id: nanoid(),
     image: getRandomArrayItem(photos),
     isBookmarked: Math.random() > 0.5,

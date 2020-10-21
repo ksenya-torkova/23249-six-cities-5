@@ -3,7 +3,14 @@ import {placeCardTypes} from "../../prop-types";
 import React from "react";
 
 const PlaceCard = (props) => {
-  const {cardData, onMouseEnter, additionalCardClass, additionalImageClass} = props;
+  const {
+    additionalCardClass,
+    additionalContentClass,
+    additionalImageClass,
+    cardData,
+    onMouseEnter,
+  } = props;
+
   const {
     id,
     image,
@@ -27,12 +34,12 @@ const PlaceCard = (props) => {
           <span>Premium</span>
         </div> : ``}
 
-      <div className={`place-card__image-wrapper${additionalImageClass}`}>
+      <div className={`place-card__image-wrapper ${additionalImageClass}`}>
         <Link to={`offer/${cardData.id}`}>
           <img className="place-card__image" src={`img/${image}`} width="260" height="200" alt="Place image"/>
         </Link>
       </div>
-      <div className="place-card__info">
+      <div className={`place-card__info ${additionalContentClass}`}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">&euro;{price}</b>
