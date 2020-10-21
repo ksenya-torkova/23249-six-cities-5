@@ -7,7 +7,13 @@ import React from "react";
 import Room from "../room/room";
 
 const App = (props) => {
-  const {placesAmount, mainRooms, otherPlaces} = props;
+  const {
+    favoritePlaces,
+    mainRooms,
+    otherPlaces,
+    placesAmount,
+    reviews,
+  } = props;
 
   return (
     <BrowserRouter>
@@ -21,11 +27,12 @@ const App = (props) => {
         <Route path="/offer/:id" exact>
           <Room
             rooms = {otherPlaces}
+            reviews = {reviews}
           />
         </Route>
         <Route path="/favorites" exact>
           <Favorites
-            rooms = {mainRooms}
+            rooms = {favoritePlaces}
           />
         </Route>
         <Route path="/login" exact>

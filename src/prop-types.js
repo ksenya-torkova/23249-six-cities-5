@@ -56,6 +56,22 @@ const placeCardTypes = {
   additionalClass: PropTypes.string,
 };
 
+const reviewData = {
+  date: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  raiting: PropTypes.number.isRequired,
+  userImage: PropTypes.string.isRequired,
+  userName: PropTypes.string.isRequired,
+};
+
+const reviewItemTypes = {
+  review: PropTypes.shape(reviewData).isRequired,
+};
+
+const reviewsBlockTypes = {
+  reviews: PropTypes.arrayOf(PropTypes.shape(reviewData)).isRequired,
+};
+
 const roomTypes = {
   rooms: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
 };
@@ -71,5 +87,7 @@ export {
   nearPlaceCard,
   nearPlacesListTypes,
   placeCardTypes,
-  roomTypes
+  reviewItemTypes,
+  reviewsBlockTypes,
+  roomTypes,
 };
