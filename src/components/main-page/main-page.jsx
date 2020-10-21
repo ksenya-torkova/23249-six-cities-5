@@ -97,7 +97,8 @@ const MainPage = (props) => {
             </section>
             <div className="cities__right-section">
               <Map
-                offers={rooms}
+                offers = {rooms}
+                mapClass = {`cities__map map`}
               />
             </div>
           </div>

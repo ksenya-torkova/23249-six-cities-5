@@ -38,11 +38,16 @@ const mainPageTypes = {
 };
 
 const mapTypes = {
+  mapClass: PropTypes.string.isRequired,
   offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
 };
 
 const nearPlaceCard = {
   cardData: PropTypes.shape(cardData).isRequired,
+};
+
+const nearPlacesListTypes = {
+  rooms: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
 };
 
 const placeCardTypes = {
@@ -64,6 +69,7 @@ export {
   mainPageTypes,
   mapTypes,
   nearPlaceCard,
+  nearPlacesListTypes,
   placeCardTypes,
   roomTypes
 };

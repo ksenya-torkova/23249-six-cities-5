@@ -1,5 +1,6 @@
 import {roomTypes} from "../../prop-types";
-import NearPlaceCard from "../near-places-card/near-places-card";
+import Map from "../map/map";
+import NearPlacesList from "../near-places-list/near-places-list";
 import React from "react";
 import ReviewForm from "../review-form/review-form";
 
@@ -179,23 +180,15 @@ const Room = (props) => {
               </section>
             </div>
           </div>
-          <section className="property__map map"></section>
+          <Map
+            offers = {rooms}
+            mapClass = {`property__map map`}
+          />
         </section>
         <div className="container">
-          <section className="near-places places">
-            <h2 className="near-places__title">Other places in the neighbourhood</h2>
-            <div className="near-places__list places__list">
-              {rooms.map((room) => (
-                <NearPlaceCard
-                  cardData = {room}
-                  key = {room.id}
-                >
-                </NearPlaceCard>
-              ))
-              }
-
-            </div>
-          </section>
+          <NearPlacesList
+            rooms = {rooms}
+          ></NearPlacesList>
         </div>
       </main>
     </div>
