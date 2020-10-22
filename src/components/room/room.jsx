@@ -158,7 +158,7 @@ const Room = (props) => {
 
           <Map
             offers = {rooms}
-            mapClass = {`property__map`}
+            className = {`property__map`}
           />
         </section>
 

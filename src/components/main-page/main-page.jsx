@@ -99,7 +99,7 @@ const MainPage = (props) => {
 
               <Map
                 offers = {rooms}
-                mapClass = {`cities__map`}
+                className = {`cities__map`}
               />
 
             </div>

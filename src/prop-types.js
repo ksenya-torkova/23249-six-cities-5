@@ -38,7 +38,7 @@ const mainPageTypes = {
 };
 
 const mapTypes = {
-  mapClass: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
   offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
 };
 

@@ -51,10 +51,10 @@ class Map extends PureComponent {
   }
 
   render() {
-    const {mapClass} = this.props;
+    const {className} = this.props;
 
     return (
-      <section id="map" className = {`${mapClass} map`}></section>
+      <section id="map" className = {`${className} map`}></section>
     );
   }
 }
