@@ -8,9 +8,6 @@ import Room from "../room/room";
 
 const App = (props) => {
   const {
-    favoritePlaces,
-    mainRooms,
-    otherPlaces,
     placesAmount,
     reviews,
   } = props;
@@ -21,19 +18,15 @@ const App = (props) => {
         <Route path="/" exact>
           <MainPage
             placesAmount = {placesAmount}
-            rooms = {mainRooms}
           />
         </Route>
         <Route path="/offer/:id" exact>
           <Room
-            rooms = {otherPlaces}
             reviews = {reviews}
           />
         </Route>
         <Route path="/favorites" exact>
-          <Favorites
-            rooms = {favoritePlaces}
-          />
+          <Favorites />
         </Route>
         <Route path="/login" exact>
           <Login />

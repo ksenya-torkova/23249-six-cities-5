@@ -1,9 +1,11 @@
 import {generateReviewsList} from "./mocks/reviews";
-import {generateRoomsList} from "./mocks/offer";
 import {getRandomInteger} from "./utils";
 import App from "./components/app/app";
 import React from "react";
 import ReactDOM from "react-dom";
+import {createStore} from "redux";
+import {Provider} from "react-redux";
+import {reducer} from "./store/reducer";
 
 const Settings = {
   PLACES_AMOUNT: 312,
@@ -12,13 +14,14 @@ const Settings = {
   FAVORITES_PLACES_AMOUNT: 3,
 };
 
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f);
+
 ReactDOM.render(
-    <App
-      favoritePlaces = {generateRoomsList(Settings.FAVORITES_PLACES_AMOUNT)}
-      mainRooms = {generateRoomsList(Settings.MAIN_ROOMS_AMOUNT)}
-      otherPlaces = {generateRoomsList(Settings.NEAR_PLACES_AMOUNT)}
-      placesAmount = {Settings.PLACES_AMOUNT}
-      reviews = {generateReviewsList(getRandomInteger(1, 5))}
-    />,
+    <Provider store = {store}>
+      <App
+        placesAmount = {Settings.PLACES_AMOUNT}
+        reviews = {generateReviewsList(getRandomInteger(1, 5))}
+      />
+    </Provider>,
     document.querySelector(`#root`)
 );

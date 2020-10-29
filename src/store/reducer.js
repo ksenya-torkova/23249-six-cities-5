@@ -1,5 +1,5 @@
-import {cities, City} from "../const";
 import {ActionType} from "./action";
+import {cities, City} from "../const";
 import {extend} from "../utils";
 import {generateRoomsList} from "../mocks/offer";
 
@@ -24,9 +24,10 @@ const reducer = (state = initialState, action) => {
       return extend(state, {
         offers: offerCards
       });
-  }
 
-  return state;
+    default:
+      return state;
+  }
 };
 
 export {reducer};

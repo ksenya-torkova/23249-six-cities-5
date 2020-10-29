@@ -3,4 +3,16 @@ const ActionType = {
   UPDATE_OFFERS: `UPDATE_OFFERS`,
 };
 
-export {ActionType};
+const ActionCreator = {
+  changeCity: (city) => ({
+    type: ActionType.CHANGE_CITY,
+    payload: city,
+  }),
+
+  updateOffers: () => ({
+    type: ActionType.UPDATE_OFFERS,
+    payload: []
+  }),
+};
+
+export {ActionType, ActionCreator};

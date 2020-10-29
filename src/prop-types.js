@@ -11,10 +11,17 @@ const cardData = {
   type: PropTypes.string.isRequired,
 };
 
+const reviewData = {
+  date: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  raiting: PropTypes.number.isRequired,
+  userImage: PropTypes.string.isRequired,
+  userName: PropTypes.string.isRequired,
+};
+
 const appTypes = {
-  mainRooms: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
-  otherPlaces: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
   placesAmount: PropTypes.number.isRequired,
+  reviews: PropTypes.arrayOf(PropTypes.shape(reviewData)).isRequired,
 };
 
 const cardListTypes = {
@@ -54,14 +61,6 @@ const placeCardTypes = {
   cardData: PropTypes.shape(cardData).isRequired,
   onMouseEnter: PropTypes.func.isRequired,
   additionalClass: PropTypes.string,
-};
-
-const reviewData = {
-  date: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  raiting: PropTypes.number.isRequired,
-  userImage: PropTypes.string.isRequired,
-  userName: PropTypes.string.isRequired,
 };
 
 const reviewItemTypes = {

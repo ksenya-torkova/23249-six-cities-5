@@ -1,9 +1,10 @@
+import {connect} from 'react-redux';
+import {favoriteTypes} from "../../prop-types";
 import FavoritesCard from "../favorites-card/favorites-card";
 import React from "react";
-import {favoriteTypes} from "../../prop-types";
 
 const Favorites = (props) => {
-  const {rooms} = props;
+  const {offers} = props;
 
   return (
     <div className="page">
@@ -46,14 +47,14 @@ const Favorites = (props) => {
                 <div className="favorites__places">
 
                   <FavoritesCard
-                    cardData = {rooms[0]}
-                    key = {rooms[0].id}
+                    cardData = {offers[0]}
+                    key = {offers[0].id}
                   >
                   </FavoritesCard>
 
                   <FavoritesCard
-                    cardData = {rooms[1]}
-                    key = {rooms[1].id}
+                    cardData = {offers[1]}
+                    key = {offers[1].id}
                   >
                   </FavoritesCard>
                 </div>
@@ -69,8 +70,8 @@ const Favorites = (props) => {
                 </div>
                 <div className="favorites__places">
                   <FavoritesCard
-                    cardData = {rooms[2]}
-                    key = {rooms[2].id}
+                    cardData = {offers[2]}
+                    key = {offers[2].id}
                   >
                   </FavoritesCard>
                 </div>
@@ -90,4 +91,9 @@ const Favorites = (props) => {
 
 Favorites.propTypes = favoriteTypes;
 
-export default Favorites;
+const mapStateToProps = (({offers}) => ({
+  offers
+}));
+
+export {Favorites};
+export default connect(mapStateToProps)(Favorites);
