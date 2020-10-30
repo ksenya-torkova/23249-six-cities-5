@@ -1,6 +1,8 @@
+import {cities} from "../../const";
 import {connect} from 'react-redux';
 import {favoriteTypes} from "../../prop-types";
-import FavoritesCard from "../favorites-card/favorites-card";
+import {nanoid} from "nanoid";
+import FavoritesLocationsItem from "../favorites-locations-item/favorites-locations-item";
 import React from "react";
 
 const Favorites = (props) => {
@@ -36,46 +38,13 @@ const Favorites = (props) => {
           <section className="favorites">
             <h1 className="favorites__title">Saved listing</h1>
             <ul className="favorites__list">
-              <li className="favorites__locations-items">
-                <div className="favorites__locations locations locations--current">
-                  <div className="locations__item">
-                    <a className="locations__item-link" href="#">
-                      <span>Amsterdam</span>
-                    </a>
-                  </div>
-                </div>
-                <div className="favorites__places">
-
-                  <FavoritesCard
-                    cardData = {offers[0]}
-                    key = {offers[0].id}
-                  >
-                  </FavoritesCard>
-
-                  <FavoritesCard
-                    cardData = {offers[1]}
-                    key = {offers[1].id}
-                  >
-                  </FavoritesCard>
-                </div>
-              </li>
-
-              <li className="favorites__locations-items">
-                <div className="favorites__locations locations locations--current">
-                  <div className="locations__item">
-                    <a className="locations__item-link" href="#">
-                      <span>Cologne</span>
-                    </a>
-                  </div>
-                </div>
-                <div className="favorites__places">
-                  <FavoritesCard
-                    cardData = {offers[2]}
-                    key = {offers[2].id}
-                  >
-                  </FavoritesCard>
-                </div>
-              </li>
+              {cities.map((city) => (
+                <FavoritesLocationsItem
+                  city = {city}
+                  key = {nanoid()}
+                  offers = {offers}
+                />
+              ))}
             </ul>
           </section>
         </div>
@@ -92,7 +61,7 @@ const Favorites = (props) => {
 Favorites.propTypes = favoriteTypes;
 
 const mapStateToProps = (({offers}) => ({
-  offers
+  offers,
 }));
 
 export {Favorites};

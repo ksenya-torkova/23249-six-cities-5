@@ -28,19 +28,44 @@ const cardListTypes = {
   rooms: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
 };
 
+const citiesListTypes = {
+  changeCity: PropTypes.func.isRequired,
+  cities: PropTypes.array.isRequired,
+  currentCity: PropTypes.string.isRequired,
+};
+
 const citiesPlaceCardTypes = {
   cardData: PropTypes.shape(cardData).isRequired,
 };
 
-const favoriteTypes = {
-  rooms: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
+const cityTypes = {
+  city: PropTypes.string.isRequired,
+  isCurrent: PropTypes.bool.isRequired,
+  onCityClick: PropTypes.func.isRequired,
+};
+
+const favoritesCardsListTypes = {
+  city: PropTypes.string.isRequired,
+  offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
 };
 
 const favoritesCardTypes = {
   cardData: PropTypes.shape(cardData).isRequired,
 };
 
+const favoritesLocationsItemTypes = {
+  city: PropTypes.string.isRequired,
+  offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
+};
+
+const favoriteTypes = {
+  rooms: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
+};
+
 const mainPageTypes = {
+  cities: PropTypes.array.isRequired,
+  city: PropTypes.string.isRequired,
+  offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
   placesAmount: PropTypes.number.isRequired,
 };
 
@@ -55,6 +80,11 @@ const nearPlaceCard = {
 
 const nearPlacesListTypes = {
   rooms: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
+};
+
+const noOffersTypes = {
+  cities: PropTypes.array.isRequired,
+  city: PropTypes.string.isRequired,
 };
 
 const placeCardTypes = {
@@ -78,13 +108,18 @@ const roomTypes = {
 export {
   appTypes,
   cardListTypes,
+  citiesListTypes,
   citiesPlaceCardTypes,
-  favoriteTypes,
+  cityTypes,
+  favoritesCardsListTypes,
   favoritesCardTypes,
+  favoritesLocationsItemTypes,
+  favoriteTypes,
   mainPageTypes,
   mapTypes,
   nearPlaceCard,
   nearPlacesListTypes,
+  noOffersTypes,
   placeCardTypes,
   reviewItemTypes,
   reviewsBlockTypes,

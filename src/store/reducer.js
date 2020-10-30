@@ -3,7 +3,7 @@ import {cities, City} from "../const";
 import {extend} from "../utils";
 import {generateRoomsList} from "../mocks/offer";
 
-const OFFER_CARDS_AMOUNT = 4;
+const OFFER_CARDS_AMOUNT = 15;
 
 const offerCards = generateRoomsList(OFFER_CARDS_AMOUNT);
 

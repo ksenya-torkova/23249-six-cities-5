@@ -12,4 +12,9 @@ const getRandomArrayItem = (arr) => {
   return arr[randomIndex];
 };
 
-export {extend, getRandomInteger, getRandomArrayItem};
+const getOffersByCity = (offers, city) => {
+  const offersByCity = offers.slice().filter((offer) => offer.city === city);
+  return offersByCity;
+};
+
+export {extend, getRandomInteger, getRandomArrayItem, getOffersByCity};
