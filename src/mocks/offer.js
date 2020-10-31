@@ -1,10 +1,6 @@
 import {getRandomInteger, getRandomArrayItem} from "../utils";
 import {nanoid} from "nanoid";
-
-const cities = [
-  `Amsterdam`,
-  `Cologne`,
-];
+import {cities} from "../const";
 
 const locations = [
   [52.3909553943508, 4.85309666406198],

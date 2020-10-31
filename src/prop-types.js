@@ -11,34 +11,66 @@ const cardData = {
   type: PropTypes.string.isRequired,
 };
 
+const reviewData = {
+  date: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  raiting: PropTypes.number.isRequired,
+  userImage: PropTypes.string.isRequired,
+  userName: PropTypes.string.isRequired,
+};
+
 const appTypes = {
-  mainRooms: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
-  otherPlaces: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
   placesAmount: PropTypes.number.isRequired,
+  reviews: PropTypes.arrayOf(PropTypes.shape(reviewData)).isRequired,
 };
 
 const cardListTypes = {
   rooms: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
 };
 
+const citiesListTypes = {
+  changeCity: PropTypes.func.isRequired,
+  cities: PropTypes.array.isRequired,
+  currentCity: PropTypes.string.isRequired,
+};
+
 const citiesPlaceCardTypes = {
   cardData: PropTypes.shape(cardData).isRequired,
 };
 
-const favoriteTypes = {
-  rooms: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
+const cityTypes = {
+  city: PropTypes.string.isRequired,
+  isCurrent: PropTypes.bool.isRequired,
+  onCityClick: PropTypes.func.isRequired,
+};
+
+const favoritesCardsListTypes = {
+  city: PropTypes.string.isRequired,
+  offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
 };
 
 const favoritesCardTypes = {
   cardData: PropTypes.shape(cardData).isRequired,
 };
 
+const favoritesLocationsItemTypes = {
+  city: PropTypes.string.isRequired,
+  offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
+};
+
+const favoriteTypes = {
+  rooms: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
+};
+
 const mainPageTypes = {
+  cities: PropTypes.array.isRequired,
+  city: PropTypes.string.isRequired,
+  offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
   placesAmount: PropTypes.number.isRequired,
 };
 
 const mapTypes = {
-  mapClass: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
   offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
 };
 
@@ -50,18 +82,15 @@ const nearPlacesListTypes = {
   rooms: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
 };
 
+const noOffersTypes = {
+  cities: PropTypes.array.isRequired,
+  city: PropTypes.string.isRequired,
+};
+
 const placeCardTypes = {
   cardData: PropTypes.shape(cardData).isRequired,
   onMouseEnter: PropTypes.func.isRequired,
   additionalClass: PropTypes.string,
-};
-
-const reviewData = {
-  date: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  raiting: PropTypes.number.isRequired,
-  userImage: PropTypes.string.isRequired,
-  userName: PropTypes.string.isRequired,
 };
 
 const reviewItemTypes = {
@@ -79,13 +108,18 @@ const roomTypes = {
 export {
   appTypes,
   cardListTypes,
+  citiesListTypes,
   citiesPlaceCardTypes,
-  favoriteTypes,
+  cityTypes,
+  favoritesCardsListTypes,
   favoritesCardTypes,
+  favoritesLocationsItemTypes,
+  favoriteTypes,
   mainPageTypes,
   mapTypes,
   nearPlaceCard,
   nearPlacesListTypes,
+  noOffersTypes,
   placeCardTypes,
   reviewItemTypes,
   reviewsBlockTypes,

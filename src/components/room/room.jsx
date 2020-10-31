@@ -1,3 +1,4 @@
+import {connect} from 'react-redux';
 import {roomTypes} from "../../prop-types";
 import Map from "../map/map";
 import NearPlacesList from "../near-places-list/near-places-list";
@@ -5,7 +6,7 @@ import React from "react";
 import ReviewsBlock from "../reviews-block/reviews-block";
 
 const Room = (props) => {
-  const {rooms, reviews} = props;
+  const {offers, reviews} = props;
 
   return (
     <div className="page">
@@ -13,7 +14,7 @@ const Room = (props) => {
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <a className="header__logo-link" href="main.html">
+              <a className="header__logo-link" href="index.html">
                 <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
               </a>
             </div>
@@ -157,14 +158,14 @@ const Room = (props) => {
           </div>
 
           <Map
-            offers = {rooms}
-            mapClass = {`property__map`}
+            offers = {offers}
+            className = {`property__map`}
           />
         </section>
 
         <div className="container">
           <NearPlacesList
-            rooms = {rooms}
+            rooms = {offers}
           ></NearPlacesList>
         </div>
 
@@ -175,4 +176,9 @@ const Room = (props) => {
 
 Room.propTypes = roomTypes;
 
-export default Room;
+const mapStateToProps = (({offers}) => ({
+  offers,
+}));
+
+export {Room};
+export default connect(mapStateToProps)(Room);
