@@ -79,6 +79,7 @@ const MainPage = (props) => {
                 <Map
                   offers = {offers}
                   className = {`cities__map`}
+                  city = {city}
                 />
               </div>
             </div>
