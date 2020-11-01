@@ -59,7 +59,7 @@ const favoritesLocationsItemTypes = {
 };
 
 const favoriteTypes = {
-  rooms: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
+  offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
 };
 
 const mainPageTypes = {
