@@ -17,4 +17,11 @@ const City = {
   PARIS: `Paris`,
 };
 
-export {cities, City};
+const SotringType = {
+  HIGH_TO_LOW: `Price: high to low`,
+  LOW_TO_HIGH: `Price: low to high`,
+  POPULAR: `Popular`,
+  TOP_RATED: `Top rated first`,
+};
+
+export {cities, City, SotringType};

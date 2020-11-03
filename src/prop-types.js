@@ -32,6 +32,8 @@ const citiesListTypes = {
   changeCity: PropTypes.func.isRequired,
   cities: PropTypes.array.isRequired,
   currentCity: PropTypes.string.isRequired,
+  updateOffers: PropTypes.func.isRequired,
+  sortingType: PropTypes.string.isRequired,
 };
 
 const citiesPlaceCardTypes = {
@@ -105,6 +107,21 @@ const roomTypes = {
   rooms: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
 };
 
+const sortingItemTypes = {
+  itemName: PropTypes.string.isRequired,
+  isActive: PropTypes.bool.isRequired,
+  onSortingItemClick: PropTypes.func.isRequired
+};
+
+const sortingTypes = {
+  activeItem: PropTypes.string.isRequired,
+  updateSortingType: PropTypes.func.isRequired,
+  sortPopular: PropTypes.func.isRequired,
+  sortLowToHigh: PropTypes.func.isRequired,
+  sortHighToLow: PropTypes.func.isRequired,
+  sortTopRated: PropTypes.func.isRequired,
+};
+
 export {
   appTypes,
   cardListTypes,
@@ -124,4 +141,6 @@ export {
   reviewItemTypes,
   reviewsBlockTypes,
   roomTypes,
+  sortingItemTypes,
+  sortingTypes,
 };
