@@ -1,6 +1,7 @@
 const ActionType = {
   CHANGE_CITY: `CHANGE_CITY`,
   UPDATE_OFFERS: `UPDATE_OFFERS`,
+  UPDATE_ACTIVE_CARD_ID: `UPDATE_ACTIVE_CARD_ID`,
 };
 
 const ActionCreator = {
@@ -12,6 +13,11 @@ const ActionCreator = {
   updateOffers: () => ({
     type: ActionType.UPDATE_OFFERS,
     payload: []
+  }),
+
+  updateActiveCardId: (id) => ({
+    type: ActionType.UPDATE_ACTIVE_CARD_ID,
+    payload: id
   }),
 };
 

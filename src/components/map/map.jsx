@@ -2,10 +2,10 @@ import '../../../node_modules/leaflet/dist/leaflet.css';
 import {mapTypes} from "../../prop-types";
 import leaflet from "leaflet";
 import React, {PureComponent} from "react";
+import {connect} from 'react-redux';
 
 const DefaultMapSettings = {
   MARKER: true,
-  PIN_ICON: `img/pin.svg`,
   PIN_SIZE: [30, 30],
   ZOOM_CONTROL: false,
   ZOOM: 12,
@@ -23,6 +23,9 @@ const CityCoordinate = {
 class Map extends PureComponent {
   constructor(props) {
     super(props);
+
+    this._map = null;
+    this._markers = [];
   }
 
   componentDidMount() {
@@ -30,8 +33,8 @@ class Map extends PureComponent {
   }
 
   componentDidUpdate() {
-    this._resetMap();
-    this._setMap();
+    this._markers.map((marker) => this._map.removeLayer(marker));
+    this._renderMarkers();
   }
 
   render() {
@@ -42,15 +45,25 @@ class Map extends PureComponent {
     );
   }
 
-  _setMap() {
-    const {offers, city} = this.props;
+  _renderMarkers() {
+    const {offers, activeCardId} = this.props;
 
-    const coordinatesPlaces = offers.map((offer) => offer.location);
+    offers.map((offer) => {
+      const icon = leaflet.icon({
+        iconUrl: `img/pin${offer.id === activeCardId ? `-active` : ``}.svg`,
+        iconSize: DefaultMapSettings.PIN_SIZE
+      });
 
-    const icon = leaflet.icon({
-      iconUrl: DefaultMapSettings.PIN_ICON,
-      iconSize: DefaultMapSettings.PIN_SIZE,
+      this._markers.push(
+          leaflet
+            .marker(offer.location, {icon})
+            .addTo(this._map)
+      );
     });
+  }
+
+  _setMap() {
+    const {city} = this.props;
 
     this._map = leaflet.map(`map`, {
       center: CityCoordinate[city.toUpperCase()].coordinates,
@@ -68,18 +81,15 @@ class Map extends PureComponent {
       })
       .addTo(this._map);
 
-    coordinatesPlaces.forEach((coordinates) =>
-      leaflet
-        .marker(coordinates, {icon})
-        .addTo(this._map)
-    );
-  }
-
-  _resetMap() {
-    this._map.remove();
+    this._renderMarkers();
   }
 }
 
 Map.propTypes = mapTypes;
 
-export default Map;
+const mapStateToProps = (({activeCardId}) => ({
+  activeCardId,
+}));
+
+export {Map};
+export default connect(mapStateToProps)(Map);

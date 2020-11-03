@@ -12,6 +12,7 @@ const FavoritesCard = (props) => {
       additionalContentClass = {`favorites__card-info`}
       cardData = {cardData}
       onMouseEnter = {() => {}}
+      onMouseLeave = {() => {}}
     />
   );
 };

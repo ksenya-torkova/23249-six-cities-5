@@ -4,7 +4,7 @@ import PlaceCard from "../place-card/place-card";
 import React from "react";
 
 const CitiesPlaceCard = (props) => {
-  const {cardData, onMouseEnter} = props;
+  const {cardData, onMouseEnter, onMouseLeave} = props;
 
   return (
     <PlaceCard
@@ -13,6 +13,7 @@ const CitiesPlaceCard = (props) => {
       additionalContentClass = {``}
       cardData = {cardData}
       onMouseEnter = {onMouseEnter}
+      onMouseLeave = {onMouseLeave}
     />
   );
 };

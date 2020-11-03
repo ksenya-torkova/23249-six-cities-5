@@ -10,6 +10,7 @@ const offerCards = generateRoomsList(OFFER_CARDS_AMOUNT);
 const initialState = {
   cities,
   city: City.AMSTERDAM,
+  activeCardId: 0,
   offers: offerCards,
 };
 
@@ -24,6 +25,9 @@ const reducer = (state = initialState, action) => {
       return extend(state, {
         offers: offerCards
       });
+
+    case ActionType.UPDATE_ACTIVE_CARD_ID:
+      return Object.assign({}, state, {activeCardId: action.payload});
 
     default:
       return state;
