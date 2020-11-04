@@ -7,7 +7,7 @@ import MainHeader from "../main-header/main-header";
 import Map from "../map/map";
 import NoOffers from "../no-offers/no-offers";
 import React from "react";
-import Sorting from '../sorting/sorting';
+import SortingWithDropdown from '../sorting/sorting';
 
 const MainPage = (props) => {
   const {placesAmount, offers, cities, city} = props;
@@ -39,7 +39,7 @@ const MainPage = (props) => {
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
                 <b className="places__found">{placesAmount} places to stay in {city}</b>
-                <Sorting />
+                <SortingWithDropdown />
 
                 <CardList
                   rooms = {offers}

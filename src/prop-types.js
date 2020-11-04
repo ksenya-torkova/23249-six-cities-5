@@ -94,9 +94,11 @@ const noOffersTypes = {
 };
 
 const placeCardTypes = {
+  additionalCardClass: PropTypes.string.isRequired,
+  additionalContentClass: PropTypes.string.isRequired,
+  additionalImageClass: PropTypes.string.isRequired,
   cardData: PropTypes.shape(cardData).isRequired,
-  onMouseEnter: PropTypes.func.isRequired,
-  additionalClass: PropTypes.string,
+  updateActiveCardId: PropTypes.func.isRequired,
 };
 
 const reviewItemTypes = {
