@@ -13,8 +13,7 @@ const NearPlacesList = (props) => {
           <NearPlaceCard
             cardData = {room}
             key = {room.id}
-          >
-          </NearPlaceCard>
+          />
         ))
         }
 

@@ -28,9 +28,9 @@ const PlaceCard = (props) => {
 
   return (
     <article
-      className={`place-card ${additionalCardClass}`}
-      onMouseEnter={() => updateActiveCardId(id)}
-      onMouseLeave={() => updateActiveCardId(DEFAULT_ID)}
+      className = {`place-card ${additionalCardClass}`}
+      onMouseEnter = {() => updateActiveCardId(id)}
+      onMouseLeave = {() => updateActiveCardId(DEFAULT_ID)}
       id = {id}
     >
 
@@ -40,8 +40,8 @@ const PlaceCard = (props) => {
         </div> : ``}
 
       <div className={`place-card__image-wrapper ${additionalImageClass}`}>
-        <Link to={`offer/${cardData.id}`}
-          onClick={() => updateActiveCardId(DEFAULT_ID)}
+        <Link to = {`offer/${cardData.id}`}
+          onClick = {() => updateActiveCardId(DEFAULT_ID)}
         >
           <img className="place-card__image" src={`img/${image}`} width="260" height="200" alt="Place image"/>
         </Link>
@@ -74,15 +74,14 @@ const PlaceCard = (props) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to={`offer/${cardData.id}`}
-            onClick={() => updateActiveCardId(DEFAULT_ID)}
+          <Link to = {`offer/${cardData.id}`}
+            onClick = {() => updateActiveCardId(DEFAULT_ID)}
           >{name}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
     </article>
   );
-
 };
 
 PlaceCard.propTypes = placeCardTypes;

@@ -152,8 +152,7 @@ const Room = (props) => {
 
               <ReviewsBlock
                 reviews = {reviews}
-              ></ReviewsBlock>
-
+              />
             </div>
           </div>
 
@@ -166,7 +165,7 @@ const Room = (props) => {
         <div className="container">
           <NearPlacesList
             rooms = {offers}
-          ></NearPlacesList>
+          />
         </div>
 
       </main>

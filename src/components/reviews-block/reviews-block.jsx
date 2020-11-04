@@ -15,10 +15,8 @@ const ReviewsBlock = (props) => {
           <ReviewItem
             review = {review}
             key = {review.id}
-          >
-          </ReviewItem>
-        ))
-        }
+          />
+        ))}
 
       </ul>
 

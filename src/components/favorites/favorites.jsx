@@ -6,7 +6,6 @@ import React from "react";
 
 const Favorites = (props) => {
   const {offers} = props;
-
   const favoritesOffers = offers.filter((offer) => offer.isBookmarked === true);
   let cities = new Set();
 
