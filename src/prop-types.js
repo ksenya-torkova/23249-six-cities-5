@@ -64,6 +64,10 @@ const favoriteTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
 };
 
+const mainHeaderTypes = {
+  isMainPage: PropTypes.bool.isRequired,
+};
+
 const mainPageTypes = {
   cities: PropTypes.array.isRequired,
   city: PropTypes.string.isRequired,
@@ -134,6 +138,7 @@ export {
   favoritesCardTypes,
   favoritesLocationsItemTypes,
   favoriteTypes,
+  mainHeaderTypes,
   mainPageTypes,
   mapTypes,
   nearPlaceCard,
