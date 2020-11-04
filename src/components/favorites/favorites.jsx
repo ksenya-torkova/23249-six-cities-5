@@ -1,8 +1,10 @@
 import {connect} from 'react-redux';
 import {favoriteTypes} from "../../prop-types";
+import {Link} from "react-router-dom";
 import {nanoid} from "nanoid";
 import FavoritesLocationsItem from "../favorites-locations-item/favorites-locations-item";
 import React from "react";
+import MainFooter from "../main-footer/main-footer";
 
 const Favorites = (props) => {
   const {offers} = props;
@@ -19,9 +21,9 @@ const Favorites = (props) => {
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <a className="header__logo-link" href="index.html">
+              <Link to = {`/`} className="header__logo-link">
                 <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41" />
-              </a>
+              </Link>
             </div>
             <nav className="header__nav">
               <ul className="header__nav-list">
@@ -54,11 +56,8 @@ const Favorites = (props) => {
           </section>
         </div>
       </main>
-      <footer className="footer container">
-        <a className="footer__logo-link" href="main.html">
-          <img className="footer__logo" src="img/logo.svg" alt="6 cities logo" width="64" height="33" />
-        </a>
-      </footer>
+
+      <MainFooter />
     </div>
   );
 };
