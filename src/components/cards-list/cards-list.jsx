@@ -9,6 +9,8 @@ class CardList extends PureComponent {
     this.state = {
       activeCard: null,
     };
+
+    this._handleChangeActiveCard = this._handleChangeActiveCard.bind(this);
   }
 
   render() {
@@ -21,16 +23,17 @@ class CardList extends PureComponent {
           <CitiesPlaceCard
             cardData = {room}
             key = {room.id}
-            onMouseEnter = {() => {
-              this.setState(() => ({
-                activeCard: room.id,
-              }));
-            }}
+            onMouseEnter = {this._handleChangeActiveCard(room)}
           />
-        ))
-        }
+        ))}
       </div>
     );
+  }
+
+  _handleChangeActiveCard(room) {
+    this.setState(() => ({
+      activeCard: room.id,
+    }));
   }
 }
 
