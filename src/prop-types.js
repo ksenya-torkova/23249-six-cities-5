@@ -104,7 +104,9 @@ const reviewsBlockTypes = {
 };
 
 const roomTypes = {
-  rooms: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
+  offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
+  reviews: PropTypes.arrayOf(PropTypes.shape(reviewData)).isRequired,
+  city: PropTypes.string.isRequired,
 };
 
 const sortingItemTypes = {

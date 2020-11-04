@@ -6,7 +6,11 @@ import React from "react";
 import ReviewsBlock from "../reviews-block/reviews-block";
 
 const Room = (props) => {
-  const {offers, reviews} = props;
+  const {
+    offers,
+    reviews,
+    city,
+  } = props;
 
   return (
     <div className="page">
@@ -159,6 +163,7 @@ const Room = (props) => {
           <Map
             offers = {offers}
             className = {`property__map`}
+            city = {city}
           />
         </section>
 
@@ -175,8 +180,9 @@ const Room = (props) => {
 
 Room.propTypes = roomTypes;
 
-const mapStateToProps = (({offers}) => ({
+const mapStateToProps = (({offers, city}) => ({
   offers,
+  city,
 }));
 
 export {Room};
