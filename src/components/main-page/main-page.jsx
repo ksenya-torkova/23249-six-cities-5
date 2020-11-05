@@ -8,6 +8,9 @@ import Map from "../map/map";
 import NoOffers from "../no-offers/no-offers";
 import React from "react";
 import SortingWithDropdown from '../sorting/sorting';
+import withActiveCard from "../../hocs/with-active-card/with-active-card";
+
+const WithActiveCard = withActiveCard(CardList);
 
 const MainPage = (props) => {
   const {placesAmount, offers, cities, city} = props;
@@ -41,7 +44,7 @@ const MainPage = (props) => {
                 <b className="places__found">{placesAmount} places to stay in {city}</b>
                 <SortingWithDropdown />
 
-                <CardList
+                <WithActiveCard
                   rooms = {offers}
                 />
               </section>
