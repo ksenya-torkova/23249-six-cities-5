@@ -101,6 +101,10 @@ const placeCardTypes = {
   updateActiveCardId: PropTypes.func.isRequired,
 };
 
+const reviewFormTypes = {
+  onFieldChange: PropTypes.func.isRequired,
+};
+
 const reviewItemTypes = {
   review: PropTypes.shape(reviewData).isRequired,
 };
@@ -147,6 +151,7 @@ export {
   nearPlacesListTypes,
   noOffersTypes,
   placeCardTypes,
+  reviewFormTypes,
   reviewItemTypes,
   reviewsBlockTypes,
   roomTypes,
