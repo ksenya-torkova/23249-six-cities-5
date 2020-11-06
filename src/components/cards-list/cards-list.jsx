@@ -7,7 +7,6 @@ const CardList = (props) => {
 
   return (
     <div className="cities__places-list places__list tabs__content">
-
       {rooms.map((room) => (
         <CitiesPlaceCard
           cardData = {room}
@@ -21,4 +20,4 @@ const CardList = (props) => {
 
 CardList.propTypes = cardListTypes;
 
-export default CardList;
+export default React.memo(CardList);

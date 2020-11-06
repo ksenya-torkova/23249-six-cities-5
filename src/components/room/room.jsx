@@ -166,5 +166,7 @@ const mapStateToProps = (({offers, city}) => ({
   city,
 }));
 
-export {Room};
-export default connect(mapStateToProps)(Room);
+const RoomMemo = React.memo(Room);
+
+export {RoomMemo};
+export default connect(mapStateToProps)(RoomMemo);

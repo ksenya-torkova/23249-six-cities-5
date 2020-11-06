@@ -24,4 +24,4 @@ const NearPlacesList = (props) => {
 
 NearPlacesList.propTypes = nearPlacesListTypes;
 
-export default NearPlacesList;
+export default React.memo(NearPlacesList);

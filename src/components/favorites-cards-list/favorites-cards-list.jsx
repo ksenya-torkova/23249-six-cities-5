@@ -23,4 +23,4 @@ const FavoritesCardsList = (props) => {
 
 FavoritesCardsList.propTypes = favoritesCardsListTypes;
 
-export default FavoritesCardsList;
+export default React.memo(FavoritesCardsList);

@@ -39,4 +39,4 @@ const MainHeader = (props) => {
 
 MainHeader.propTypes = mainHeaderTypes;
 
-export default MainHeader;
+export default React.memo(MainHeader);

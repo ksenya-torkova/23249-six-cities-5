@@ -19,4 +19,4 @@ const SortingItem = (props) => {
 
 SortingItem.propTypes = sortingItemTypes;
 
-export default SortingItem;
+export default React.memo(SortingItem);

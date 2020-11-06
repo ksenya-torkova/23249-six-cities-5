@@ -99,5 +99,7 @@ const mapDispatchToProps = ((dispatch) => ({
   },
 }));
 
-export const SortingWithDropdown = withDropdownSorting(Sorting);
-export default connect(mapStateToProps, mapDispatchToProps)(withDropdownSorting(Sorting));
+const SortingMemo = React.memo(Sorting);
+
+export const SortingWithDropdown = withDropdownSorting(SortingMemo);
+export default connect(mapStateToProps, mapDispatchToProps)(withDropdownSorting(SortingMemo));
