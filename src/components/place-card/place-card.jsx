@@ -1,6 +1,10 @@
 import {Link} from "react-router-dom";
 import {placeCardTypes} from "../../prop-types";
 import React from "react";
+import {connect} from 'react-redux';
+import {ActionCreator} from '../../store/action';
+
+const DEFAULT_ID = 0;
 
 const PlaceCard = (props) => {
   const {
@@ -8,7 +12,7 @@ const PlaceCard = (props) => {
     additionalContentClass,
     additionalImageClass,
     cardData,
-    onMouseEnter,
+    updateActiveCardId,
   } = props;
 
   const {
@@ -25,7 +29,8 @@ const PlaceCard = (props) => {
   return (
     <article
       className={`place-card ${additionalCardClass}`}
-      onMouseEnter = {onMouseEnter}
+      onMouseEnter={() => updateActiveCardId(id)}
+      onMouseLeave={() => updateActiveCardId(DEFAULT_ID)}
       id = {id}
     >
 
@@ -35,7 +40,9 @@ const PlaceCard = (props) => {
         </div> : ``}
 
       <div className={`place-card__image-wrapper ${additionalImageClass}`}>
-        <Link to={`offer/${cardData.id}`}>
+        <Link to={`offer/${cardData.id}`}
+          onClick={() => updateActiveCardId(DEFAULT_ID)}
+        >
           <img className="place-card__image" src={`img/${image}`} width="260" height="200" alt="Place image"/>
         </Link>
       </div>
@@ -67,7 +74,9 @@ const PlaceCard = (props) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to={`offer/${cardData.id}`}>{name}</Link>
+          <Link to={`offer/${cardData.id}`}
+            onClick={() => updateActiveCardId(DEFAULT_ID)}
+          >{name}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
@@ -78,4 +87,11 @@ const PlaceCard = (props) => {
 
 PlaceCard.propTypes = placeCardTypes;
 
-export default PlaceCard;
+const mapDispatchToProps = ((dispatch) => ({
+  updateActiveCardId(id) {
+    dispatch(ActionCreator.updateActiveCardId(id));
+  }
+}));
+
+export {PlaceCard};
+export default connect(null, mapDispatchToProps)(PlaceCard);

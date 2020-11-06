@@ -1,4 +1,3 @@
-import {cities} from "../../const";
 import {connect} from 'react-redux';
 import {favoriteTypes} from "../../prop-types";
 import {nanoid} from "nanoid";
@@ -7,6 +6,13 @@ import React from "react";
 
 const Favorites = (props) => {
   const {offers} = props;
+
+  const favoritesOffers = offers.filter((offer) => offer.isBookmarked === true);
+  let cities = new Set();
+
+  favoritesOffers.forEach((favoritesOffer) => {
+    cities.add(favoritesOffer.city);
+  });
 
   return (
     <div className="page">
@@ -38,11 +44,11 @@ const Favorites = (props) => {
           <section className="favorites">
             <h1 className="favorites__title">Saved listing</h1>
             <ul className="favorites__list">
-              {cities.map((city) => (
+              {Array.from(cities).map((city) => (
                 <FavoritesLocationsItem
                   city = {city}
                   key = {nanoid()}
-                  offers = {offers}
+                  offers = {favoritesOffers}
                 />
               ))}
             </ul>

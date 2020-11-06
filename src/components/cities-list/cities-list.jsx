@@ -2,15 +2,23 @@ import {ActionCreator} from '../../store/action';
 import {citiesListTypes} from "../../prop-types";
 import {connect} from 'react-redux';
 import {nanoid} from "nanoid";
+import {SotringType} from '../../const';
 import City from "../city/city";
 import React from "react";
 
 const CitiesList = (props) => {
-  const {cities, currentCity, changeCity} = props;
+  const {
+    changeCity,
+    cities,
+    currentCity,
+    sortingType,
+    updateOffers,
+  } = props;
 
   const onCityClick = (evt) => {
     evt.preventDefault();
     changeCity(evt.target.textContent);
+    updateOffers(sortingType);
   };
 
   return (
@@ -27,14 +35,36 @@ const CitiesList = (props) => {
   );
 };
 
-const mapStateToProps = (({city, cities}) => ({
+const mapStateToProps = (({city, cities, sortingType}) => ({
   currentCity: city,
   cities,
+  sortingType,
 }));
 
 const mapDispatchToProps = ((dispatch) => ({
   changeCity(city) {
     dispatch(ActionCreator.changeCity(city));
+  },
+
+  updateOffers(sortingType) {
+    dispatch(ActionCreator.updateOffers());
+
+    switch (sortingType) {
+      case SotringType.POPULAR:
+        dispatch(ActionCreator.sortPopular());
+        break;
+
+      case SotringType.LOW_TO_HIGH:
+        dispatch(ActionCreator.sortLowToHigh());
+        break;
+
+      case SotringType.HIGH_TO_LOW:
+        dispatch(ActionCreator.sortHighToLow());
+        break;
+
+      case SotringType.TOP_RATED:
+        dispatch(ActionCreator.sortTopRated());
+    }
   },
 }));
 

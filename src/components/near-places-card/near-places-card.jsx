@@ -12,6 +12,7 @@ const NearPlaceCard = (props) => {
       additionalContentClass = {``}
       cardData = {cardData}
       onMouseEnter = {() => {}}
+      onMouseLeave = {() => {}}
     />
   );
 };
