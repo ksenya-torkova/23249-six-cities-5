@@ -2,6 +2,9 @@ import {reviewsBlockTypes} from "../../prop-types";
 import React from "react";
 import ReviewForm from "../review-form/review-form";
 import ReviewItem from "../review-item/review-item";
+import withFieldChange from "../../hocs/with-field-change/with-field-change";
+
+const WithFieldChange = withFieldChange(ReviewForm);
 
 const ReviewsBlock = (props) => {
   const {reviews} = props;
@@ -15,14 +18,12 @@ const ReviewsBlock = (props) => {
           <ReviewItem
             review = {review}
             key = {review.id}
-          >
-          </ReviewItem>
-        ))
-        }
+          />
+        ))}
 
       </ul>
 
-      <ReviewForm />
+      <WithFieldChange />
 
     </section>
   );

@@ -64,6 +64,10 @@ const favoriteTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
 };
 
+const mainHeaderTypes = {
+  isMainPage: PropTypes.bool.isRequired,
+};
+
 const mainPageTypes = {
   cities: PropTypes.array.isRequired,
   city: PropTypes.string.isRequired,
@@ -90,9 +94,15 @@ const noOffersTypes = {
 };
 
 const placeCardTypes = {
+  additionalCardClass: PropTypes.string.isRequired,
+  additionalContentClass: PropTypes.string.isRequired,
+  additionalImageClass: PropTypes.string.isRequired,
   cardData: PropTypes.shape(cardData).isRequired,
-  onMouseEnter: PropTypes.func.isRequired,
-  additionalClass: PropTypes.string,
+  updateActiveCardId: PropTypes.func.isRequired,
+};
+
+const reviewFormTypes = {
+  onFieldChange: PropTypes.func.isRequired,
 };
 
 const reviewItemTypes = {
@@ -104,7 +114,9 @@ const reviewsBlockTypes = {
 };
 
 const roomTypes = {
-  rooms: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
+  offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
+  reviews: PropTypes.arrayOf(PropTypes.shape(reviewData)).isRequired,
+  city: PropTypes.string.isRequired,
 };
 
 const sortingItemTypes = {
@@ -132,12 +144,14 @@ export {
   favoritesCardTypes,
   favoritesLocationsItemTypes,
   favoriteTypes,
+  mainHeaderTypes,
   mainPageTypes,
   mapTypes,
   nearPlaceCard,
   nearPlacesListTypes,
   noOffersTypes,
   placeCardTypes,
+  reviewFormTypes,
   reviewItemTypes,
   reviewsBlockTypes,
   roomTypes,
