@@ -1,7 +1,8 @@
+import {activeCardTypes} from "../../prop-types";
 import React, {PureComponent} from "react";
 
 const withActiveCard = (Component) => {
-  return class ActiveCard extends PureComponent {
+  class ActiveCard extends PureComponent {
     constructor(props) {
       super(props);
 
@@ -24,7 +25,11 @@ const withActiveCard = (Component) => {
         activeCard: room.id,
       }));
     }
-  };
+  }
+
+  ActiveCard.propTypes = activeCardTypes;
+
+  return ActiveCard;
 };
 
 export default withActiveCard;

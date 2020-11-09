@@ -1,7 +1,8 @@
+import {dropdownSortingTypes} from "../../prop-types";
 import React, {PureComponent} from "react";
 
 const withDropdownSorting = (Component) => {
-  return class DropdownSorting extends PureComponent {
+  class DropdownSorting extends PureComponent {
     constructor(props) {
       super(props);
 
@@ -27,7 +28,11 @@ const withDropdownSorting = (Component) => {
         isOpen: !previusState.isOpen,
       }));
     }
-  };
+  }
+
+  DropdownSorting.propTypes = dropdownSortingTypes;
+
+  return DropdownSorting;
 };
 
 export default withDropdownSorting;
