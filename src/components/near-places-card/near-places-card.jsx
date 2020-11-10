@@ -19,4 +19,4 @@ const NearPlaceCard = (props) => {
 
 NearPlaceCard.propTypes = nearPlaceCard;
 
-export default NearPlaceCard;
+export default React.memo(NearPlaceCard);

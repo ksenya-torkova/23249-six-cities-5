@@ -49,5 +49,7 @@ const mapStateToProps = (({offers}) => ({
   offers,
 }));
 
-export {Favorites};
-export default connect(mapStateToProps)(Favorites);
+const FavoritesMemo = React.memo(Favorites);
+
+export {FavoritesMemo};
+export default connect(mapStateToProps)(FavoritesMemo);

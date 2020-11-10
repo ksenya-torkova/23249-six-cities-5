@@ -19,6 +19,10 @@ const reviewData = {
   userName: PropTypes.string.isRequired,
 };
 
+const activeCardTypes = {
+  onHoverCard: PropTypes.func.isRequired,
+};
+
 const appTypes = {
   placesAmount: PropTypes.number.isRequired,
   reviews: PropTypes.arrayOf(PropTypes.shape(reviewData)).isRequired,
@@ -46,6 +50,11 @@ const cityTypes = {
   onCityClick: PropTypes.func.isRequired,
 };
 
+const dropdownSortingTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onSortingClick: PropTypes.func.isRequired,
+};
+
 const favoritesCardsListTypes = {
   city: PropTypes.string.isRequired,
   offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
@@ -62,6 +71,10 @@ const favoritesLocationsItemTypes = {
 
 const favoriteTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
+};
+
+const fieldChangeTypes = {
+  onFieldChange: PropTypes.func.isRequired,
 };
 
 const mainHeaderTypes = {
@@ -135,15 +148,18 @@ const sortingTypes = {
 };
 
 export {
+  activeCardTypes,
   appTypes,
   cardListTypes,
   citiesListTypes,
   citiesPlaceCardTypes,
   cityTypes,
+  dropdownSortingTypes,
   favoritesCardsListTypes,
   favoritesCardTypes,
   favoritesLocationsItemTypes,
   favoriteTypes,
+  fieldChangeTypes,
   mainHeaderTypes,
   mainPageTypes,
   mapTypes,

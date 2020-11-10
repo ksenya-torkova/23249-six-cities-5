@@ -31,4 +31,4 @@ const ReviewsBlock = (props) => {
 
 ReviewsBlock.propTypes = reviewsBlockTypes;
 
-export default ReviewsBlock;
+export default React.memo(ReviewsBlock);

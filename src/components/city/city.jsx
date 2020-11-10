@@ -19,4 +19,4 @@ const City = (props) => {
 
 City.propTypes = cityTypes;
 
-export default City;
+export default React.memo(City);

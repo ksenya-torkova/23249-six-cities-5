@@ -39,5 +39,7 @@ const mapStateToProps = (({city, cities}) => ({
   city,
 }));
 
-export {NoOffers};
-export default connect(mapStateToProps)(NoOffers);
+const NoOffersMemo = React.memo(NoOffers);
+
+export {NoOffersMemo};
+export default connect(mapStateToProps)(NoOffersMemo);

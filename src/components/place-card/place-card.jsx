@@ -92,5 +92,7 @@ const mapDispatchToProps = ((dispatch) => ({
   }
 }));
 
-export {PlaceCard};
-export default connect(null, mapDispatchToProps)(PlaceCard);
+const PlaceCardMemo = React.memo(PlaceCard);
+
+export {PlaceCardMemo};
+export default connect(null, mapDispatchToProps)(PlaceCardMemo);

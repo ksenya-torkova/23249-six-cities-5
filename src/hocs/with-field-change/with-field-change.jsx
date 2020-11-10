@@ -1,7 +1,8 @@
+import {fieldChangeTypes} from "../../prop-types";
 import React, {PureComponent} from "react";
 
 const withFieldChange = (Component) => {
-  return class FieldChange extends PureComponent {
+  class FieldChange extends PureComponent {
     constructor(props) {
       super(props);
 
@@ -23,7 +24,11 @@ const withFieldChange = (Component) => {
       const {name, value} = evt.target;
       this.setState({[name]: value});
     }
-  };
+  }
+
+  FieldChange.propTypes = fieldChangeTypes;
+
+  return FieldChange;
 };
 
 export default withFieldChange;

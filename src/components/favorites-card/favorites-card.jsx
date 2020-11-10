@@ -19,4 +19,4 @@ const FavoritesCard = (props) => {
 
 FavoritesCard.propTypes = favoritesCardTypes;
 
-export default FavoritesCard;
+export default React.memo(FavoritesCard);

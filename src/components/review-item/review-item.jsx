@@ -39,4 +39,4 @@ const ReviewItem = (props) => {
 
 ReviewItem.propTypes = reviewItemTypes;
 
-export default ReviewItem;
+export default React.memo(ReviewItem);

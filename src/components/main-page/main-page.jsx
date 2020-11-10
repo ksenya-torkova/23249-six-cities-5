@@ -71,5 +71,7 @@ const mapStateToProps = (({city, offers, cities}) => ({
   offers: getOffersByCity(offers, city),
 }));
 
-export {MainPage};
-export default connect(mapStateToProps)(MainPage);
+const MainPageMemo = React.memo(MainPage);
+
+export {MainPageMemo};
+export default connect(mapStateToProps)(MainPageMemo);
