@@ -1,12 +1,9 @@
 import {ActionType} from "./action";
 import {cities, City} from "../const";
 import {extend} from "../utils";
-import {generateRoomsList} from "../mocks/offer";
 import {SotringType} from '../const';
 
-const OFFER_CARDS_AMOUNT = 15;
-
-const offerCards = generateRoomsList(OFFER_CARDS_AMOUNT);
+const offerCards = [];
 
 const initialState = {
   cities,
