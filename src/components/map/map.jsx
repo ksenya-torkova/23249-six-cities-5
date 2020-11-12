@@ -87,8 +87,8 @@ class Map extends PureComponent {
 
 Map.propTypes = mapTypes;
 
-const mapStateToProps = (({activeCardId}) => ({
-  activeCardId,
+const mapStateToProps = (({APP}) => ({
+  activeCardId: APP.activeCardId,
 }));
 
 export {Map};

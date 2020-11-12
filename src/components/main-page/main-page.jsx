@@ -1,5 +1,4 @@
 import {connect} from 'react-redux';
-import {getOffersByCity} from "../../utils";
 import {mainPageTypes} from "../../prop-types";
 import CardList from "../cards-list/cards-list";
 import CitiesList from "../cities-list/cities-list";
@@ -65,10 +64,9 @@ const MainPage = (props) => {
 
 MainPage.propTypes = mainPageTypes;
 
-const mapStateToProps = (({city, offers, cities}) => ({
-  cities,
-  city,
-  offers: getOffersByCity(offers, city),
+const mapStateToProps = (({APP}) => ({
+  cities: APP.cities,
+  city: APP.city,
 }));
 
 const MainPageMemo = React.memo(MainPage);

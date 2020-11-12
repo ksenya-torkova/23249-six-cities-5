@@ -161,9 +161,8 @@ const Room = (props) => {
 
 Room.propTypes = roomTypes;
 
-const mapStateToProps = (({offers, city}) => ({
-  offers,
-  city,
+const mapStateToProps = (({APP}) => ({
+  city: APP.city,
 }));
 
 const RoomMemo = React.memo(Room);

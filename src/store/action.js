@@ -1,5 +1,6 @@
 const ActionType = {
   CHANGE_CITY: `CHANGE_CITY`,
+  LOAD_OFFERS: `LOAD_OFFERS`,
   SORT_HIGH_TO_LOW: `SORT_HIGH_TO_LOW`,
   SORT_LOW_TO_HIGH: `SORT_LOW_TO_HIGH`,
   SORT_POPULAR: `SORT_POPULAR`,
@@ -13,6 +14,11 @@ const ActionCreator = {
   changeCity: (city) => ({
     type: ActionType.CHANGE_CITY,
     payload: city,
+  }),
+
+  loadOffers: (loadedOffers) => ({
+    type: ActionType.LOAD_OFFERS,
+    payload: loadedOffers
   }),
 
   sortHighToLow: () => ({

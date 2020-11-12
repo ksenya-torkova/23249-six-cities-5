@@ -34,9 +34,9 @@ const NoOffers = (props) => {
 
 NoOffers.propTypes = noOffersTypes;
 
-const mapStateToProps = (({city, cities}) => ({
-  cities,
-  city,
+const mapStateToProps = (({APP}) => ({
+  cities: APP.cities,
+  city: APP.city,
 }));
 
 const NoOffersMemo = React.memo(NoOffers);

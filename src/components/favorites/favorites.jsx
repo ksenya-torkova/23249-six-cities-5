@@ -1,4 +1,3 @@
-import {connect} from 'react-redux';
 import {favoriteTypes} from "../../prop-types";
 import {nanoid} from "nanoid";
 import FavoritesLocationsItem from "../favorites-locations-item/favorites-locations-item";
@@ -45,11 +44,4 @@ const Favorites = (props) => {
 
 Favorites.propTypes = favoriteTypes;
 
-const mapStateToProps = (({offers}) => ({
-  offers,
-}));
-
-const FavoritesMemo = React.memo(Favorites);
-
-export {FavoritesMemo};
-export default connect(mapStateToProps)(FavoritesMemo);
+export default React.memo(Favorites);

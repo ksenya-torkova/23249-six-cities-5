@@ -71,9 +71,9 @@ const Sorting = (props) => {
 
 Sorting.propTypes = sortingTypes;
 
-const mapStateToProps = (({sortingType}) => {
+const mapStateToProps = (({APP}) => {
   return {
-    activeItem: sortingType,
+    activeItem: APP.sortingType,
   };
 });
 

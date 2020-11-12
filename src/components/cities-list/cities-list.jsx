@@ -35,10 +35,10 @@ const CitiesList = (props) => {
   );
 };
 
-const mapStateToProps = (({city, cities, sortingType}) => ({
-  currentCity: city,
-  cities,
-  sortingType,
+const mapStateToProps = (({APP}) => ({
+  currentCity: APP.city,
+  cities: APP.cities,
+  sortingType: APP.sortingType,
 }));
 
 const mapDispatchToProps = ((dispatch) => ({
