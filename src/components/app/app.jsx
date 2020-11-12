@@ -1,16 +1,15 @@
 import {appTypes} from "../../prop-types";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import {connect} from "react-redux";
-import {getOffersByCity} from "../../utils";
 import Favorites from "../favorites/favorites";
 import Login from "../login/login";
 import MainPage from "../main-page/main-page";
 import React from "react";
 import Room from "../room/room";
+import {getOffers} from "../../selectors";
 
 const App = (props) => {
   const {
-    placesAmount,
     reviews,
     offers,
   } = props;
@@ -21,7 +20,6 @@ const App = (props) => {
         <Route path="/" exact>
           <MainPage
             offers = {offers}
-            placesAmount = {placesAmount}
           />
         </Route>
         <Route path="/offer/:id" exact>
@@ -54,8 +52,8 @@ const App = (props) => {
 
 App.propTypes = appTypes;
 
-const mapStateToProps = ({DATA, APP}) => ({
-  offers: getOffersByCity(DATA.offers, APP.city),
+const mapStateToProps = (state) => ({
+  offers: getOffers(state),
 });
 
 export {App};

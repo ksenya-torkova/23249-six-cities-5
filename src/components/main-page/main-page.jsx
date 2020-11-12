@@ -1,4 +1,6 @@
+import {City} from "../../const";
 import {connect} from 'react-redux';
+import {getCity, getCities} from "../../selectors";
 import {mainPageTypes} from "../../prop-types";
 import CardList from "../cards-list/cards-list";
 import CitiesList from "../cities-list/cities-list";
@@ -8,11 +10,14 @@ import NoOffers from "../no-offers/no-offers";
 import React from "react";
 import SortingWithDropdown from '../sorting/sorting';
 import withActiveCard from "../../hocs/with-active-card/with-active-card";
+import {getOffersByCity} from "../../utils";
 
 const WithActiveCard = withActiveCard(CardList);
 
 const MainPage = (props) => {
-  const {placesAmount, offers, cities, city} = props;
+  const {offers, cities, city} = props;
+
+  const currentOffers = getOffersByCity(offers, city);
 
   return (
     <div className="page page--gray page--main">
@@ -40,16 +45,16 @@ const MainPage = (props) => {
             <div className="cities__places-container container">
               <section className="cities__places places">
                 <h2 className="visually-hidden">Places</h2>
-                <b className="places__found">{placesAmount} places to stay in {city}</b>
+                <b className="places__found">{currentOffers.length} places to stay in {city}</b>
                 <SortingWithDropdown />
 
                 <WithActiveCard
-                  rooms = {offers}
+                  rooms = {currentOffers}
                 />
               </section>
               <div className="cities__right-section">
                 <Map
-                  offers = {offers}
+                  offers = {currentOffers}
                   className = {`cities__map`}
                   city = {city}
                 />
@@ -64,9 +69,9 @@ const MainPage = (props) => {
 
 MainPage.propTypes = mainPageTypes;
 
-const mapStateToProps = (({APP}) => ({
-  cities: APP.cities,
-  city: APP.city,
+const mapStateToProps = ((state) => ({
+  cities: getCities(City),
+  city: getCity(state),
 }));
 
 const MainPageMemo = React.memo(MainPage);

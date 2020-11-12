@@ -8,7 +8,6 @@ const initialState = {
   cities,
   city: City.AMSTERDAM,
   activeCardId: 0,
-  offers: offerCards,
   sortingType: SotringType.POPULAR,
 };
 

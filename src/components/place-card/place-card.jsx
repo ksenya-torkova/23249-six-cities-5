@@ -17,12 +17,12 @@ const PlaceCard = (props) => {
 
   const {
     id,
-    image,
+    previewImage,
     isBookmarked,
     isPremium,
-    name,
+    title,
     price,
-    raiting,
+    rating,
     type,
   } = cardData;
 
@@ -43,7 +43,7 @@ const PlaceCard = (props) => {
         <Link to = {`offer/${cardData.id}`}
           onClick = {() => updateActiveCardId(DEFAULT_ID)}
         >
-          <img className="place-card__image" src={`img/${image}`} width="260" height="200" alt="Place image"/>
+          <img className="place-card__image" src={previewImage} width="260" height="200" alt="Place image"/>
         </Link>
       </div>
       <div className={`place-card__info ${additionalContentClass}`}>
@@ -69,14 +69,14 @@ const PlaceCard = (props) => {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `${raiting * 20}%`}}></span>
+            <span style={{width: `${rating * 20}%`}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
         <h2 className="place-card__name">
           <Link to = {`offer/${cardData.id}`}
             onClick = {() => updateActiveCardId(DEFAULT_ID)}
-          >{name}</Link>
+          >{title}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
