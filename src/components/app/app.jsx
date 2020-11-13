@@ -1,12 +1,13 @@
 import {appTypes} from "../../prop-types";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import {connect} from "react-redux";
+import {selectCityOffers} from "../../selectors";
 import Favorites from "../favorites/favorites";
 import Login from "../login/login";
 import MainPage from "../main-page/main-page";
+import PrivateRoute from "../private-route/private-route";
 import React from "react";
 import Room from "../room/room";
-import {selectCityOffers} from "../../selectors";
 
 const App = (props) => {
   const {
@@ -28,11 +29,13 @@ const App = (props) => {
             reviews = {reviews}
           />
         </Route>
-        <Route path="/favorites" exact>
-          <Favorites
+        <PrivateRoute
+          exact
+          path = {`/favorites`}
+          render = {() => <Favorites
             offers = {offers}
-          />
-        </Route>
+          />}
+        />
         <Route path="/login" exact>
           <Login />
         </Route>

@@ -29,7 +29,10 @@ const selectCityOffers = createSelector([getOffers, getSortingType, getCity], (o
   return false;
 });
 
+const getAuthorizationStatus = (state) => state[NameSpace.USER].authorizationStatus;
+
 export {
+  getAuthorizationStatus,
   getCities,
   getCity,
   getHoveredOfferId,
