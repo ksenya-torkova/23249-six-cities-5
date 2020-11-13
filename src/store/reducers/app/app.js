@@ -18,24 +18,6 @@ const app = (state = initialState, action) => {
         city: action.payload
       });
 
-    case ActionType.SORT_HIGH_TO_LOW:
-      return Object.assign({}, state,
-          {offers: state.offers.slice(0).sort((firstOffer, secondOffer) => firstOffer.price > secondOffer.price ? -1 : 1)}
-      );
-
-    case ActionType.SORT_LOW_TO_HIGH:
-      return Object.assign({}, state,
-          {offers: state.offers.slice(0).sort((firstOffer, secondOffer) => firstOffer.price > secondOffer.price ? 1 : -1)}
-      );
-
-    case ActionType.SORT_POPULAR:
-      return Object.assign({}, state, {offers: offerCards.filter((offer) => offer.city === state.city)});
-
-    case ActionType.SORT_TOP_RATED:
-      return Object.assign({}, state,
-          {offers: state.offers.slice(0).sort((firstOffer, secondOffer) => firstOffer.raiting > secondOffer.raiting ? -1 : 1)}
-      );
-
     case ActionType.UPDATE_ACTIVE_CARD_ID:
       return Object.assign({}, state, {activeCardId: action.payload});
 

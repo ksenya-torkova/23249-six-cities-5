@@ -10,39 +10,18 @@ const sortingItemsNames = Object.values(SotringType);
 
 const Sorting = (props) => {
   const {
-    activeItem,
     updateSortingType,
     isOpen,
     onSortingClick,
-    sortHighToLow,
-    sortLowToHigh,
-    sortPopular,
-    sortTopRated,
+    sortingType
   } = props;
   const openClassName = isOpen ? `places__options--opened` : ``;
-
-  switch (activeItem) {
-    case SotringType.HIGH_TO_LOW:
-      sortHighToLow();
-      break;
-
-    case SotringType.LOW_TO_HIGH:
-      sortLowToHigh();
-      break;
-
-    case SotringType.POPULAR:
-      sortPopular();
-      break;
-
-    case SotringType.TOP_RATED:
-      sortTopRated();
-  }
 
   const sortingItemsElements = sortingItemsNames.map((itemName, index) =>
     <SortingItem
       itemName = {itemName}
       key = {index}
-      isActive = {activeItem === itemName}
+      isActive = {sortingType === itemName}
       onSortingItemClick = {(evt) => {
         updateSortingType(evt.target.dataset.sorting);
         onSortingClick();
@@ -57,7 +36,7 @@ const Sorting = (props) => {
         tabIndex="0"
         onClick = {onSortingClick}
       >
-        {activeItem}
+        {sortingType}
         <svg className="places__sorting-arrow" width="7" height="4">
           <use xlinkHref="#icon-arrow-select" />
         </svg>
@@ -73,27 +52,11 @@ Sorting.propTypes = sortingTypes;
 
 const mapStateToProps = (({APP}) => {
   return {
-    activeItem: APP.sortingType,
+    sortingType: APP.sortingType,
   };
 });
 
 const mapDispatchToProps = ((dispatch) => ({
-  sortHighToLow() {
-    dispatch(ActionCreator.sortHighToLow());
-  },
-
-  sortLowToHigh() {
-    dispatch(ActionCreator.sortLowToHigh());
-  },
-
-  sortPopular() {
-    dispatch(ActionCreator.sortPopular());
-  },
-
-  sortTopRated() {
-    dispatch(ActionCreator.sortTopRated());
-  },
-
   updateSortingType(sortingType) {
     dispatch(ActionCreator.updateSortingType(sortingType));
   },

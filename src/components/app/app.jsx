@@ -6,7 +6,7 @@ import Login from "../login/login";
 import MainPage from "../main-page/main-page";
 import React from "react";
 import Room from "../room/room";
-import {getOffers} from "../../selectors";
+import {selectCityOffers} from "../../selectors";
 
 const App = (props) => {
   const {
@@ -52,8 +52,8 @@ const App = (props) => {
 
 App.propTypes = appTypes;
 
-const mapStateToProps = (state) => ({
-  offers: getOffers(state),
+const mapStateToProps = ({APP, DATA}) => ({
+  offers: selectCityOffers({APP, DATA}),
 });
 
 export {App};
