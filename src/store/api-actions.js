@@ -19,7 +19,13 @@ const checkAuth = () => (dispatch, _getState, api) => (
 
 const login = ({login: email, password}) => (dispatch, _getState, api) => (
   api.post(`/login`, {email, password})
-    .then(() => dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH)))
+    .then((userName) => {
+      dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
+      dispatch(ActionCreator.setUserInfo(userName.data));
+    })
+    .catch((err) => {
+      throw err;
+    })
 );
 
 export {checkAuth, fetchOffersList, login};

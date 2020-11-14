@@ -3,10 +3,10 @@ import {mainHeaderTypes} from "../../prop-types";
 import React from "react";
 import {connect} from "react-redux";
 import {AuthorizationStatus} from "../../const";
-import {getAuthorizationStatus} from "../../selectors";
+import {getAuthorizationStatus, getUserName} from "../../selectors";
 
 const MainHeader = (props) => {
-  const {authorizationStatus, isMainPage} = props;
+  const {authorizationStatus, isMainPage, userName} = props;
 
   return (
     <header className="header">
@@ -32,7 +32,7 @@ const MainHeader = (props) => {
                   <span className="header__user-name user__name">
                     {authorizationStatus === AuthorizationStatus.NO_AUTH ?
                       `Sign In` :
-                      `Oliver.conner@gmail.com`}
+                      userName}
                   </span>
                 </Link>
               </li>
@@ -48,6 +48,7 @@ MainHeader.propTypes = mainHeaderTypes;
 
 const mapStateToProps = (state) => ({
   authorizationStatus: getAuthorizationStatus(state),
+  userName: getUserName(state),
 });
 
 const MainHeaderMemo = React.memo(MainHeader);

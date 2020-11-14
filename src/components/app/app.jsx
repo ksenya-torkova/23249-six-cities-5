@@ -1,19 +1,23 @@
 import {appTypes} from "../../prop-types";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import {connect} from "react-redux";
-import {selectCityOffers} from "../../selectors";
+import {selectCityOffers, getAuthorizationStatus} from "../../selectors";
 import Favorites from "../favorites/favorites";
 import Login from "../login/login";
 import MainPage from "../main-page/main-page";
-import PrivateRoute from "../private-route/private-route";
+import withPrivateRoute from "../../hocs/with-private-route/with-private-route";
 import React from "react";
 import Room from "../room/room";
 
 const App = (props) => {
   const {
+    authorizationStatus,
     reviews,
     offers,
   } = props;
+
+  const LoginWithPrivateRoute = withPrivateRoute(Login, !authorizationStatus);
+  const FavoritesWithPrivateRoute = withPrivateRoute(Favorites, authorizationStatus, `/login`);
 
   return (
     <BrowserRouter>
@@ -29,15 +33,15 @@ const App = (props) => {
             reviews = {reviews}
           />
         </Route>
-        <PrivateRoute
+        <Route
           exact
           path = {`/favorites`}
-          render = {() => <Favorites
+          render = {() => <FavoritesWithPrivateRoute
             offers = {offers}
           />}
         />
         <Route path="/login" exact>
-          <Login />
+          <LoginWithPrivateRoute />
         </Route>
         <Route>
           <React.Fragment>
@@ -55,8 +59,9 @@ const App = (props) => {
 
 App.propTypes = appTypes;
 
-const mapStateToProps = ({APP, DATA}) => ({
+const mapStateToProps = ({APP, DATA, USER}) => ({
   offers: selectCityOffers({APP, DATA}),
+  authorizationStatus: getAuthorizationStatus({USER}),
 });
 
 export {App};
