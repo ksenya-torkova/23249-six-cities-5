@@ -71,6 +71,7 @@ const fieldChangeTypes = {};
 
 const mainHeaderTypes = {
   isMainPage: PropTypes.bool.isRequired,
+  authorizationStatus: PropTypes.string.isRequired,
 };
 
 const mainPageTypes = {
