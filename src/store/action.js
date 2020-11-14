@@ -1,6 +1,7 @@
 const ActionType = {
   CHANGE_CITY: `CHANGE_CITY`,
   LOAD_OFFERS: `LOAD_OFFERS`,
+  LOAD_REVIEWS: `LOAD_REVIEWS`,
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
   SET_USER_INFO: `SET_USER_INFO`,
   UPDATE_ACTIVE_CARD_ID: `UPDATE_ACTIVE_CARD_ID`,
@@ -17,6 +18,11 @@ const ActionCreator = {
   loadOffers: (loadedOffers) => ({
     type: ActionType.LOAD_OFFERS,
     payload: loadedOffers
+  }),
+
+  loadReviews: (loadedReviews) => ({
+    type: ActionType.LOAD_REVIEWS,
+    payload: loadedReviews
   }),
 
   requireAuthorization: (status) => ({

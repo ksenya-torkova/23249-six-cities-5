@@ -1,5 +1,5 @@
 import {ActionCreator} from "./action";
-import {adaptOffer} from "../utils";
+import {adaptOffer, adaptReview} from "../utils";
 import {AuthorizationStatus} from "../const";
 
 const fetchOffersList = () => (dispatch, _getState, api) => (
@@ -28,4 +28,11 @@ const login = ({login: email, password}) => (dispatch, _getState, api) => (
     })
 );
 
-export {checkAuth, fetchOffersList, login};
+const fetchReviewsList = (id) => (dispatch, _getState, api) => (
+  api.get(`/comments/${id}`)
+  .then(({data}) => dispatch(ActionCreator.loadReviews(
+      data.map((it) => adaptReview(it))
+  )))
+);
+
+export {checkAuth, fetchOffersList, fetchReviewsList, login};

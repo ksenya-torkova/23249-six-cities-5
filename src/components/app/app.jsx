@@ -12,7 +12,6 @@ import Room from "../room/room";
 const App = (props) => {
   const {
     authorizationStatus,
-    reviews,
     offers,
   } = props;
 
@@ -30,7 +29,6 @@ const App = (props) => {
         <Route path="/offer/:id" exact>
           <Room
             offers = {offers}
-            reviews = {reviews}
           />
         </Route>
         <Route

@@ -5,6 +5,7 @@ import Map from "../map/map";
 import NearPlacesList from "../near-places-list/near-places-list";
 import React from "react";
 import ReviewsBlock from "../reviews-block/reviews-block";
+import {getReviewsById} from "../../selectors";
 
 const Room = (props) => {
   const {
@@ -161,8 +162,9 @@ const Room = (props) => {
 
 Room.propTypes = roomTypes;
 
-const mapStateToProps = (({APP}) => ({
+const mapStateToProps = (({APP, DATA}) => ({
   city: APP.city,
+  reviews: getReviewsById({DATA}),
 }));
 
 const RoomMemo = React.memo(Room);

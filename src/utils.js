@@ -35,18 +35,23 @@ const adaptOffer = (offer) => {
   };
 };
 
+const adaptReview = (review) => {
+  return {
+    id: review[`id`],
+    date: review[`date`],
+    description: review[`comment`],
+    rating: review[`rating`],
+    userInfo: {
+      avatar: review[`user`][`avatar_url`],
+      name: review[`user`][`name`],
+      id: review[`user`][`id`],
+      isSuper: review[`user`][`is_pro`],
+    },
+  };
+};
+
 const extend = (a, b) => {
   return Object.assign({}, a, b);
-};
-
-const getRandomInteger = function (min, max) {
-  return Math.floor(min + Math.random() * (max + 1 - min));
-};
-
-const getRandomArrayItem = (arr) => {
-  const randomIndex = getRandomInteger(0, arr.length - 1);
-
-  return arr[randomIndex];
 };
 
 const getOffersByCity = (offers, city) => {
@@ -54,4 +59,4 @@ const getOffersByCity = (offers, city) => {
   return offersByCity;
 };
 
-export {adaptOffer, extend, getRandomInteger, getRandomArrayItem, getOffersByCity};
+export {adaptOffer, adaptReview, extend, getOffersByCity};

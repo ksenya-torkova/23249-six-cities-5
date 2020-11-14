@@ -31,6 +31,7 @@ const selectCityOffers = createSelector([getOffers, getSortingType, getCity], (o
 
 const getAuthorizationStatus = (state) => state[NameSpace.USER].authorizationStatus;
 const getUserName = (state) => state[NameSpace.USER].userInfo.name;
+const getReviewsById = (state) => state[NameSpace.DATA].reviews;
 
 export {
   getAuthorizationStatus,
@@ -38,6 +39,7 @@ export {
   getCity,
   getHoveredOfferId,
   getOffers,
+  getReviewsById,
   getSortingType,
   getUserName,
   selectCityOffers,

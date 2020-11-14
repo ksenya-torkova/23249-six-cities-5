@@ -4,8 +4,6 @@ import {AuthorizationStatus} from "./const";
 import {checkAuth, fetchOffersList} from "./store/api-actions";
 import {composeWithDevTools} from "redux-devtools-extension";
 import {createAPI} from "./services/api/api";
-import {generateReviewsList} from "./mocks/reviews";
-import {getRandomInteger} from "./utils";
 import {Provider} from "react-redux";
 import App from "./components/app/app";
 import React from "react";
@@ -29,9 +27,7 @@ store.dispatch(checkAuth());
 
 ReactDOM.render(
     <Provider store = {store}>
-      <App
-        reviews = {generateReviewsList(getRandomInteger(1, 5))}
-      />
+      <App />
     </Provider>,
     document.querySelector(`#root`)
 );

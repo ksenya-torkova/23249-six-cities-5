@@ -14,16 +14,13 @@ const cardData = {
 const reviewData = {
   date: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  raiting: PropTypes.number.isRequired,
-  userImage: PropTypes.string.isRequired,
-  userName: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
 };
 
 const activeCardTypes = {};
 
 const appTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
-  reviews: PropTypes.arrayOf(PropTypes.shape(reviewData)).isRequired,
 };
 
 const cardListTypes = {
@@ -105,6 +102,7 @@ const placeCardTypes = {
   additionalImageClass: PropTypes.string.isRequired,
   cardData: PropTypes.shape(cardData).isRequired,
   updateActiveCardId: PropTypes.func.isRequired,
+  getReviewsAction: PropTypes.func.isRequired,
 };
 
 const privateRouteTypes = {};
