@@ -3,6 +3,7 @@ import {mapTypes} from "../../prop-types";
 import leaflet from "leaflet";
 import React, {PureComponent} from "react";
 import {connect} from 'react-redux';
+import {getHoveredOfferId} from "../../selectors";
 
 const DefaultMapSettings = {
   MARKER: true,
@@ -56,7 +57,7 @@ class Map extends PureComponent {
 
       this._markers.push(
           leaflet
-            .marker(offer.location, {icon})
+            .marker([offer.coordinates.latitude, offer.coordinates.longitude], {icon})
             .addTo(this._map)
       );
     });
@@ -87,9 +88,9 @@ class Map extends PureComponent {
 
 Map.propTypes = mapTypes;
 
-const mapStateToProps = (({activeCardId}) => ({
-  activeCardId,
-}));
+const mapStateToProps = (state) => ({
+  activeCardId: getHoveredOfferId(state),
+});
 
 export {Map};
 export default connect(mapStateToProps)(Map);

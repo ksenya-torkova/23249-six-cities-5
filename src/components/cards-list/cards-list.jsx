@@ -3,7 +3,7 @@ import CitiesPlaceCard from "../cities-place-card/cities-place-card";
 import React from "react";
 
 const CardList = (props) => {
-  const {onHoverCard, rooms} = props;
+  const {rooms} = props;
 
   return (
     <div className="cities__places-list places__list tabs__content">
@@ -11,7 +11,6 @@ const CardList = (props) => {
         <CitiesPlaceCard
           cardData = {room}
           key = {room.id}
-          onMouseEnter = {onHoverCard(room)}
         />
       ))}
     </div>

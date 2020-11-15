@@ -1,25 +1,30 @@
+import {applyMiddleware, createStore} from "redux";
+import {composeWithDevTools} from "redux-devtools-extension";
+import {createAPI} from "./services/api/api";
+import {fetchOffersList} from "./store/api-actions";
 import {generateReviewsList} from "./mocks/reviews";
 import {getRandomInteger} from "./utils";
+import {Provider} from "react-redux";
 import App from "./components/app/app";
 import React from "react";
 import ReactDOM from "react-dom";
-import {createStore} from "redux";
-import {Provider} from "react-redux";
-import {reducer} from "./store/reducer";
+import rootReducer from "./store/reducers/root-reducer";
+import thunk from "redux-thunk";
 
-const Settings = {
-  PLACES_AMOUNT: 312,
-  MAIN_ROOMS_AMOUNT: 5,
-  NEAR_PLACES_AMOUNT: 3,
-  FAVORITES_PLACES_AMOUNT: 3,
-};
+const api = createAPI();
 
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f);
+const store = createStore(
+    rootReducer,
+    composeWithDevTools(
+        applyMiddleware(thunk.withExtraArgument(api))
+    )
+);
+
+store.dispatch(fetchOffersList());
 
 ReactDOM.render(
     <Provider store = {store}>
       <App
-        placesAmount = {Settings.PLACES_AMOUNT}
         reviews = {generateReviewsList(getRandomInteger(1, 5))}
       />
     </Provider>,

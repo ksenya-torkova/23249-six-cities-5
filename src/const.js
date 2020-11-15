@@ -24,4 +24,19 @@ const SotringType = {
   TOP_RATED: `Top rated first`,
 };
 
+export const SorterActiveClass = {
+  ACTIVE: `places__option--active`
+};
+
+export const SorterType = {
+  POPULAR: `Popular`,
+  PRICE_LOW_TO_HIGH: `Price: low to high`,
+  PRICE_HIGH_TO_LOW: `Price: high to low`,
+  TOP_RATED_FIRST: `Top rated first`
+};
+
+export const SorterListOpenedClass = {
+  OPENED: `places__options--opened`
+};
+
 export {cities, City, SotringType};

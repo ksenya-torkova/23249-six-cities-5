@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 
 const cardData = {
-  id: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  isBookmarked: PropTypes.bool.isRequired,
+  id: PropTypes.number.isRequired,
+  previewImage: PropTypes.string.isRequired,
+  isBookmark: PropTypes.bool.isRequired,
   isPremium: PropTypes.bool.isRequired,
-  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  raiting: PropTypes.number.isRequired,
+  rating: PropTypes.number.isRequired,
   type: PropTypes.string.isRequired,
 };
 
@@ -19,12 +19,10 @@ const reviewData = {
   userName: PropTypes.string.isRequired,
 };
 
-const activeCardTypes = {
-  onHoverCard: PropTypes.func.isRequired,
-};
+const activeCardTypes = {};
 
 const appTypes = {
-  placesAmount: PropTypes.number.isRequired,
+  offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
   reviews: PropTypes.arrayOf(PropTypes.shape(reviewData)).isRequired,
 };
 
@@ -36,7 +34,6 @@ const citiesListTypes = {
   changeCity: PropTypes.func.isRequired,
   cities: PropTypes.array.isRequired,
   currentCity: PropTypes.string.isRequired,
-  updateOffers: PropTypes.func.isRequired,
   sortingType: PropTypes.string.isRequired,
 };
 
@@ -50,10 +47,7 @@ const cityTypes = {
   onCityClick: PropTypes.func.isRequired,
 };
 
-const dropdownSortingTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  onSortingClick: PropTypes.func.isRequired,
-};
+const dropdownSortingTypes = {};
 
 const favoritesCardsListTypes = {
   city: PropTypes.string.isRequired,
@@ -73,9 +67,7 @@ const favoriteTypes = {
   offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
 };
 
-const fieldChangeTypes = {
-  onFieldChange: PropTypes.func.isRequired,
-};
+const fieldChangeTypes = {};
 
 const mainHeaderTypes = {
   isMainPage: PropTypes.bool.isRequired,
@@ -85,7 +77,6 @@ const mainPageTypes = {
   cities: PropTypes.array.isRequired,
   city: PropTypes.string.isRequired,
   offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
-  placesAmount: PropTypes.number.isRequired,
 };
 
 const mapTypes = {
@@ -139,12 +130,8 @@ const sortingItemTypes = {
 };
 
 const sortingTypes = {
-  activeItem: PropTypes.string.isRequired,
+  sortingType: PropTypes.string.isRequired,
   updateSortingType: PropTypes.func.isRequired,
-  sortPopular: PropTypes.func.isRequired,
-  sortLowToHigh: PropTypes.func.isRequired,
-  sortHighToLow: PropTypes.func.isRequired,
-  sortTopRated: PropTypes.func.isRequired,
 };
 
 export {
