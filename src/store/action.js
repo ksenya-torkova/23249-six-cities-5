@@ -30,9 +30,9 @@ const ActionCreator = {
     payload: status,
   }),
 
-  setUserInfo: (data) => ({
+  setUserInfo: (userInfo) => ({
     type: ActionType.SET_USER_INFO,
-    payload: data,
+    payload: userInfo,
   }),
 
   updateActiveCardId: (id) => ({

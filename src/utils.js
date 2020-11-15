@@ -1,3 +1,12 @@
+const adaptAuthInfo = (data) => {
+  return {
+    id: data[`id`],
+    email: data[`email`],
+    avatarUrl: data[`avatar_url`],
+    isPro: data[`is_pro`],
+  };
+};
+
 const adaptOffer = (offer) => {
   return {
     id: offer[`id`],
@@ -59,4 +68,4 @@ const getOffersByCity = (offers, city) => {
   return offersByCity;
 };
 
-export {adaptOffer, adaptReview, extend, getOffersByCity};
+export {adaptAuthInfo, adaptOffer, adaptReview, extend, getOffersByCity};

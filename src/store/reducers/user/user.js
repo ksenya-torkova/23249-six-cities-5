@@ -3,9 +3,7 @@ import {ActionType} from "../../action";
 
 const initialState = {
   authorizationStatus: AuthorizationStatus.NO_AUTH,
-  userInfo: {
-    name: ``,
-  },
+  userInfo: {},
 };
 
 const user = (state = initialState, action) => {

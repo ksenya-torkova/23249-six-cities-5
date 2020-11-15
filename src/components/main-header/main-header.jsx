@@ -3,10 +3,11 @@ import {mainHeaderTypes} from "../../prop-types";
 import React from "react";
 import {connect} from "react-redux";
 import {AuthorizationStatus} from "../../const";
-import {getAuthorizationStatus, getUserName} from "../../selectors";
+import {getAuthorizationStatus, getUserInfo} from "../../selectors";
 
 const MainHeader = (props) => {
-  const {authorizationStatus, isMainPage, userName} = props;
+  const {authorizationStatus, isMainPage, userInfo} = props;
+  const {email: userName, avatarUrl: avatar} = userInfo;
 
   return (
     <header className="header">
@@ -28,11 +29,15 @@ const MainHeader = (props) => {
               <li className="header__nav-item user">
                 <Link to = {`/favorites`} className="header__nav-link header__nav-link--profile">
                   <div className="header__avatar-wrapper user__avatar-wrapper">
+                    {authorizationStatus === AuthorizationStatus.AUTH &&
+                      <img className="header__avatar user__avatar" src={avatar} alt="user avatar" width="20" height="20" />
+                    }
                   </div>
                   <span className="header__user-name user__name">
                     {authorizationStatus === AuthorizationStatus.NO_AUTH ?
-                      `Sign In` :
-                      userName}
+                      `Sign In`
+                      : userName
+                    }
                   </span>
                 </Link>
               </li>
@@ -48,7 +53,7 @@ MainHeader.propTypes = mainHeaderTypes;
 
 const mapStateToProps = (state) => ({
   authorizationStatus: getAuthorizationStatus(state),
-  userName: getUserName(state),
+  userInfo: getUserInfo(state),
 });
 
 const MainHeaderMemo = React.memo(MainHeader);
