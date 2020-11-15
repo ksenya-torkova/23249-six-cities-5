@@ -4,6 +4,8 @@ import {ActionType} from "../../action";
 const initialState = {
   offers: [],
   reviews: [],
+  offerById: {},
+  nearOffersById: [],
 };
 
 const data = (state = initialState, action) => {
@@ -16,6 +18,16 @@ const data = (state = initialState, action) => {
     case ActionType.LOAD_REVIEWS:
       return extend(state, {
         reviews: action.payload,
+      });
+
+    case ActionType.LOAD_OFFER_BY_ID:
+      return extend(state, {
+        offerById: action.payload,
+      });
+
+    case ActionType.LOAD_NEAR_OFFERS_BY_ID:
+      return extend(state, {
+        nearOffersById: action.payload,
       });
   }
 

@@ -23,7 +23,7 @@ const adaptOffer = (offer) => {
       longitude: offer[`location`][`longitude`],
       zoom: offer[`location`][`zoom`]
     },
-    pictures: offer[`images`],
+    pictures: offer[`images`].slice(0, 6),
     previewImage: offer[`preview_image`],
     isPremium: offer[`is_premium`],
     isBookmark: offer[`is_favorite`],

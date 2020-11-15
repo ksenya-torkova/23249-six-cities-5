@@ -120,7 +120,6 @@ const reviewsBlockTypes = {
 };
 
 const roomTypes = {
-  offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
   reviews: PropTypes.arrayOf(PropTypes.shape(reviewData)).isRequired,
   city: PropTypes.string.isRequired,
 };

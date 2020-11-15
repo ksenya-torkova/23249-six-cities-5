@@ -7,6 +7,8 @@ const ActionType = {
   UPDATE_ACTIVE_CARD_ID: `UPDATE_ACTIVE_CARD_ID`,
   UPDATE_OFFERS: `UPDATE_OFFERS`,
   UPDATE_SORTING_TYPE: `UPDATE_SORTING_TYPE`,
+  LOAD_OFFER_BY_ID: `LOAD_OFFER_BY_ID`,
+  LOAD_NEAR_OFFERS_BY_ID: `LOAD_NEAR_OFFERS_BY_ID`,
 };
 
 const ActionCreator = {
@@ -23,6 +25,16 @@ const ActionCreator = {
   loadReviews: (loadedReviews) => ({
     type: ActionType.LOAD_REVIEWS,
     payload: loadedReviews
+  }),
+
+  loadOfferById: (loadedOfferById) => ({
+    type: ActionType.LOAD_OFFER_BY_ID,
+    payload: loadedOfferById
+  }),
+
+  loadNearOffersById: (loadedNearOffersById) => ({
+    type: ActionType.LOAD_NEAR_OFFERS_BY_ID,
+    payload: loadedNearOffersById
   }),
 
   requireAuthorization: (status) => ({

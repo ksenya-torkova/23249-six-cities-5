@@ -6,6 +6,8 @@ const getAuthorizationStatus = (state) => state[NameSpace.USER].authorizationSta
 const getCities = (cities) => Object.values(cities);
 const getCity = (state) => state[NameSpace.APP].city;
 const getHoveredOfferId = (state) => state[NameSpace.APP].activeCardId;
+const getNearOffers = (state) => state[NameSpace.DATA].nearOffersById;
+const getOfferByIdFromServer = (state) => state[NameSpace.DATA].offerById;
 const getOffers = (state) => state[NameSpace.DATA].offers;
 const getReviewsById = (state) => state[NameSpace.DATA].reviews;
 const getSortingType = (state) => state[NameSpace.APP].sortingType;
@@ -36,6 +38,8 @@ export {
   getCities,
   getCity,
   getHoveredOfferId,
+  getNearOffers,
+  getOfferByIdFromServer,
   getOffers,
   getReviewsById,
   getSortingType,

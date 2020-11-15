@@ -40,4 +40,27 @@ const fetchReviewsList = (id) => (dispatch, _getState, api) => (
   )))
 );
 
-export {checkAuth, fetchOffersList, fetchReviewsList, login};
+const fetchOfferById = (id) => (dispatch, _getState, api) => (
+  api.get(`/hotels/${id}`)
+    .then(({data}) => {
+      dispatch(ActionCreator.loadOfferById(adaptOffer(data)));
+    })
+);
+
+const fetchNearOffersById = (id) => (dispatch, _getState, api) => (
+  api.get(`/hotels/${id}/nearby`)
+    .then(({data}) => {
+      dispatch(ActionCreator.loadNearOffersById(
+          data.map((it) => adaptOffer(it))
+      ));
+    })
+);
+
+export {
+  checkAuth,
+  fetchNearOffersById,
+  fetchOfferById,
+  fetchOffersList,
+  fetchReviewsList,
+  login,
+};
