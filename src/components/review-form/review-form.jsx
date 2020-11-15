@@ -74,6 +74,8 @@ ReviewForm.propTypes = reviewFormTypes;
 
 const mapDispatchToProps = (dispatch) => ({
   postReview(rating, review, id) {
+    // тут id есть
+    // console.log(id);
     dispatch(postReview(rating, review, id));
   }
 });
