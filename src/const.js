@@ -3,22 +3,13 @@ const AuthorizationStatus = {
   NO_AUTH: false,
 };
 
-const cities = [
-  `Amsterdam`,
-  `Brussels`,
-  `Cologne`,
-  `Dusseldorf`,
-  `Hamburg`,
-  `Paris`,
-];
-
 const City = {
-  AMSTERDAM: `Amsterdam`,
-  BRUSSELS: `Brussels`,
-  COLOGNE: `Cologne`,
-  DUSSELDORF: `Dusseldorf`,
-  HAMBURG: `Hamburg`,
   PARIS: `Paris`,
+  COLOGNE: `Cologne`,
+  BRUSSELS: `Brussels`,
+  AMSTERDAM: `Amsterdam`,
+  HAMBURG: `Hamburg`,
+  DUSSELDORF: `Dusseldorf`,
 };
 
 const SotringType = {
@@ -43,4 +34,4 @@ export const SorterListOpenedClass = {
   OPENED: `places__options--opened`
 };
 
-export {AuthorizationStatus, cities, City, SotringType};
+export {AuthorizationStatus, City, SotringType};

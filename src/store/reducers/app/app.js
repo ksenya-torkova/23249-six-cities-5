@@ -1,12 +1,12 @@
 import {ActionType} from "../../action";
-import {cities, City, SotringType} from "../../../const";
+import {City, SotringType} from "../../../const";
 import {extend} from "../../../utils";
 
 const offerCards = [];
 
 const initialState = {
-  cities,
-  city: City.AMSTERDAM,
+  cities: Object.values(City),
+  city: City.PARIS,
   activeCardId: 0,
   sortingType: SotringType.POPULAR,
 };
