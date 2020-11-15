@@ -1,6 +1,8 @@
 const ActionType = {
   CHANGE_CITY: `CHANGE_CITY`,
   LOAD_OFFERS: `LOAD_OFFERS`,
+  REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
+  SET_USER_INFO: `SET_USER_INFO`,
   UPDATE_ACTIVE_CARD_ID: `UPDATE_ACTIVE_CARD_ID`,
   UPDATE_OFFERS: `UPDATE_OFFERS`,
   UPDATE_SORTING_TYPE: `UPDATE_SORTING_TYPE`,
@@ -15,6 +17,16 @@ const ActionCreator = {
   loadOffers: (loadedOffers) => ({
     type: ActionType.LOAD_OFFERS,
     payload: loadedOffers
+  }),
+
+  requireAuthorization: (status) => ({
+    type: ActionType.REQUIRED_AUTHORIZATION,
+    payload: status,
+  }),
+
+  setUserInfo: (data) => ({
+    type: ActionType.SET_USER_INFO,
+    payload: data,
   }),
 
   updateActiveCardId: (id) => ({

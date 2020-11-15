@@ -71,6 +71,8 @@ const fieldChangeTypes = {};
 
 const mainHeaderTypes = {
   isMainPage: PropTypes.bool.isRequired,
+  authorizationStatus: PropTypes.bool.isRequired,
+  userName: PropTypes.string.isRequired,
 };
 
 const mainPageTypes = {
@@ -104,6 +106,8 @@ const placeCardTypes = {
   cardData: PropTypes.shape(cardData).isRequired,
   updateActiveCardId: PropTypes.func.isRequired,
 };
+
+const privateRouteTypes = {};
 
 const reviewFormTypes = {
   onFieldChange: PropTypes.func.isRequired,
@@ -154,6 +158,7 @@ export {
   nearPlacesListTypes,
   noOffersTypes,
   placeCardTypes,
+  privateRouteTypes,
   reviewFormTypes,
   reviewItemTypes,
   reviewsBlockTypes,

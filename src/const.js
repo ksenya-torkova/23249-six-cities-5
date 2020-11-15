@@ -1,3 +1,7 @@
+const AuthorizationStatus = {
+  AUTH: true,
+  NO_AUTH: false,
+};
 
 const cities = [
   `Amsterdam`,
@@ -39,4 +43,4 @@ export const SorterListOpenedClass = {
   OPENED: `places__options--opened`
 };
 
-export {cities, City, SotringType};
+export {AuthorizationStatus, cities, City, SotringType};
