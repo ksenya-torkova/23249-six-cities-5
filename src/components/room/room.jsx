@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
 import {fetchOfferById, fetchNearOffersById, fetchReviewsList} from "../../store/api-actions";
+import {getAuthorizationStatus} from "../../selectors";
 import {getReviewsById, getNearOffers, getOfferByIdFromServer} from "../../selectors";
 import {roomTypes} from "../../prop-types";
 import MainHeader from "../main-header/main-header";
@@ -28,9 +29,11 @@ class Room extends PureComponent {
 
   render() {
     const {
-      nearOffers,
-      reviews,
+      authorizationStatus,
       city,
+      nearOffers,
+      offerId,
+      reviews,
     } = this.props;
 
     return (
@@ -158,6 +161,8 @@ class Room extends PureComponent {
 
                 <ReviewsBlock
                   reviews = {reviews}
+                  id = {offerId}
+                  isAuthorized = {authorizationStatus}
                 />
               </div>
             </div>
@@ -182,15 +187,13 @@ class Room extends PureComponent {
 
 Room.propTypes = roomTypes;
 
-const mapStateToProps = (state) => {
-  return ({
-    city: state.APP.city,
-    offer: getOfferByIdFromServer(state),
-    reviews: getReviewsById(state),
-    nearOffers: getNearOffers(state),
-  });
-};
-
+const mapStateToProps = (state) => ({
+  city: state.APP.city,
+  offer: getOfferByIdFromServer(state),
+  reviews: getReviewsById(state),
+  nearOffers: getNearOffers(state),
+  authorizationStatus: getAuthorizationStatus(state),
+});
 
 const mapDispatchToProps = (dispatch) => ({
   getOfferInformation(id) {

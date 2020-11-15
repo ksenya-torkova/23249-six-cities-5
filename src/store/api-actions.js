@@ -56,6 +56,18 @@ const fetchNearOffersById = (id) => (dispatch, _getState, api) => (
     })
 );
 
+const postReview = ({rating, review: comment, id}) => (dispatch, _getState, api) => (
+  api.post(`/comments/${id}`, {comment, rating})
+    .then(({data}) => {
+      dispatch(ActionCreator.setUserReview(
+          data.map((it) => adaptReview(it))
+      ));
+    })
+    .catch((err) => {
+      throw err;
+    })
+);
+
 export {
   checkAuth,
   fetchNearOffersById,
@@ -63,4 +75,5 @@ export {
   fetchOffersList,
   fetchReviewsList,
   login,
+  postReview,
 };

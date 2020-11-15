@@ -9,6 +9,7 @@ const ActionType = {
   UPDATE_SORTING_TYPE: `UPDATE_SORTING_TYPE`,
   LOAD_OFFER_BY_ID: `LOAD_OFFER_BY_ID`,
   LOAD_NEAR_OFFERS_BY_ID: `LOAD_NEAR_OFFERS_BY_ID`,
+  SET_USER_REVIEW: `SET_USER_REVIEW`,
 };
 
 const ActionCreator = {
@@ -45,6 +46,11 @@ const ActionCreator = {
   setUserInfo: (userInfo) => ({
     type: ActionType.SET_USER_INFO,
     payload: userInfo,
+  }),
+
+  setUserReview: (data) => ({
+    type: ActionType.SET_USER_REVIEW,
+    payload: data,
   }),
 
   updateActiveCardId: (id) => ({
