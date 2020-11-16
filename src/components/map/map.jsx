@@ -1,9 +1,9 @@
 import '../../../node_modules/leaflet/dist/leaflet.css';
+import {connect} from 'react-redux';
+import {getHoveredOfferId} from "../../selectors";
 import {mapTypes} from "../../prop-types";
 import leaflet from "leaflet";
 import React, {PureComponent} from "react";
-import {connect} from 'react-redux';
-import {getHoveredOfferId} from "../../selectors";
 
 const DefaultMapSettings = {
   MARKER: true,

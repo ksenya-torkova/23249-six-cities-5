@@ -1,9 +1,9 @@
+import {AuthorizationStatus} from "../../const";
+import {connect} from "react-redux";
+import {getAuthorizationStatus, getUserInfo} from "../../selectors";
 import {Link} from "react-router-dom";
 import {mainHeaderTypes} from "../../prop-types";
 import React from "react";
-import {connect} from "react-redux";
-import {AuthorizationStatus} from "../../const";
-import {getAuthorizationStatus, getUserInfo} from "../../selectors";
 
 const MainHeader = (props) => {
   const {authorizationStatus, isMainPage, userInfo} = props;

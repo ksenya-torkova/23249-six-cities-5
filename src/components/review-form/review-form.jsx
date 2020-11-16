@@ -1,7 +1,7 @@
-import {reviewFormTypes} from "../../prop-types";
-import React, {Fragment, PureComponent} from "react";
 import {connect} from 'react-redux';
 import {postReview} from "../../store/api-actions";
+import {reviewFormTypes} from "../../prop-types";
+import React, {Fragment, PureComponent} from "react";
 
 const radioValues = [`5`, `4`, `3`, `2`, `1`];
 
@@ -26,10 +26,20 @@ class ReviewForm extends PureComponent {
         <div className="reviews__rating-form form__rating">
           {radioValues.map((it) => (
             <Fragment key={it}>
-              <input className="form__rating-input visually-hidden" name="rating" value={it} id={`${it}-stars`}
-                onChange={onFieldChange} type="radio" checked={rating === it}
+              <input
+                className="form__rating-input visually-hidden"
+                name="rating"
+                value={it}
+                id={`${it}-stars`}
+                onChange={onFieldChange}
+                type="radio"
+                checked={rating === it}
               />
-              <label htmlFor={`${it}-stars`} className="reviews__rating-label form__rating-label" title="perfect">
+              <label
+                htmlFor={`${it}-stars`}
+                className="reviews__rating-label form__rating-label"
+                title="perfect"
+              >
                 <svg className="form__star-image" width="37" height="33">
                   <use xlinkHref="#icon-star"/>
                 </svg>

@@ -17,8 +17,8 @@ const ReviewsBlock = (props) => {
       <ul className="reviews__list">
         {sortedReviews.map((review) => (
           <ReviewItem
-            review = {review}
             key = {review.id}
+            review = {review}
           />
         ))}
       </ul>

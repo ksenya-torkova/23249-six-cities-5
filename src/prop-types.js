@@ -66,6 +66,11 @@ const favoriteTypes = {
 
 const fieldChangeTypes = {};
 
+const loginTypes = {
+  city: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+};
+
 const mainHeaderTypes = {
   isMainPage: PropTypes.bool.isRequired,
   authorizationStatus: PropTypes.bool.isRequired,
@@ -148,6 +153,7 @@ export {
   favoritesLocationsItemTypes,
   favoriteTypes,
   fieldChangeTypes,
+  loginTypes,
   mainHeaderTypes,
   mainPageTypes,
   mapTypes,

@@ -13,18 +13,18 @@ const PlaceCard = (props) => {
     additionalContentClass,
     additionalImageClass,
     cardData,
-    updateActiveCardId,
     getReviewsAction,
+    updateActiveCardId,
   } = props;
 
   const {
     id,
-    previewImage,
     isBookmark,
     isPremium,
-    title,
+    previewImage,
     price,
     rating,
+    title,
     type,
   } = cardData;
 

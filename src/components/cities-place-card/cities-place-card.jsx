@@ -1,4 +1,3 @@
-
 import {citiesPlaceCardTypes} from "../../prop-types";
 import PlaceCard from "../place-card/place-card";
 import React from "react";

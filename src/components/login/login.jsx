@@ -3,8 +3,8 @@ import {connect} from "react-redux";
 import {getCity} from "../../selectors";
 import {Link} from "react-router-dom";
 import {login} from "../../store/api-actions";
+import {loginTypes} from "../../prop-types";
 import MainHeader from "../main-header/main-header";
-import PropTypes from "prop-types";
 import React, {PureComponent, createRef} from "react";
 
 class Login extends PureComponent {
@@ -93,10 +93,7 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-Login.propTypes = {
-  city: PropTypes.string.isRequired,
-  onSubmit: PropTypes.func.isRequired,
-};
+Login.propTypes = loginTypes;
 
 export {Login};
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
