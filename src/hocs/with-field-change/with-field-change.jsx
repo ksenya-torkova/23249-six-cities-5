@@ -18,7 +18,7 @@ const withFieldChange = (Component) => {
       };
 
       this._handleFieldChange = this._handleFieldChange.bind(this);
-      this.handleClearFormField = this.handleClearFormField.bind(this);
+      this._handleClearFormField = this._handleClearFormField.bind(this);
     }
 
     componentDidUpdate() {
@@ -41,7 +41,7 @@ const withFieldChange = (Component) => {
         review={review}
         isDisabledSubmitButton={isDisabledSubmitButton}
         onFieldChange = {this._handleFieldChange}
-        onClearFormField={this.handleClearFormField}
+        onClearFormField={this._handleClearFormField}
       />;
     }
 
@@ -50,7 +50,7 @@ const withFieldChange = (Component) => {
       this.setState({[name]: value});
     }
 
-    handleClearFormField() {
+    _handleClearFormField() {
       this.setState({
         rating: ``,
         review: ``,

@@ -64,12 +64,20 @@ class ReviewForm extends PureComponent {
 
   _handleSubmit(evt) {
     evt.preventDefault();
-    const {onSubmit, rating, review, id} = this.props;
+    const {
+      id,
+      onClearFormField,
+      onSubmit,
+      rating,
+      review,
+    } = this.props;
 
     onSubmit(id, {
       review,
       rating
     });
+
+    onClearFormField();
   }
 }
 
