@@ -1,3 +1,6 @@
+import {MAX_REVIEWS_AMOUNT} from "./const";
+import moment from "moment";
+
 const adaptAuthInfo = (data) => {
   return {
     id: data[`id`],
@@ -68,4 +71,17 @@ const getOffersByCity = (offers, city) => {
   return offersByCity;
 };
 
-export {adaptAuthInfo, adaptOffer, adaptReview, extend, getOffersByCity};
+const getSortedByDate = (reviews) => {
+  const clonedReviews = reviews.slice();
+  clonedReviews.sort((a, b) => moment(b.date).diff(a.date));
+  return clonedReviews.slice(0, MAX_REVIEWS_AMOUNT);
+};
+
+export {
+  adaptAuthInfo,
+  adaptOffer,
+  adaptReview,
+  extend,
+  getOffersByCity,
+  getSortedByDate,
+};

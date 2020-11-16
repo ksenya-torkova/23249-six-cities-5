@@ -1,3 +1,4 @@
+import {getSortedByDate} from "../../utils";
 import {reviewsBlockTypes} from "../../prop-types";
 import React from "react";
 import ReviewForm from "../review-form/review-form";
@@ -8,12 +9,13 @@ const WithFieldChange = withFieldChange(ReviewForm);
 
 const ReviewsBlock = (props) => {
   const {reviews, id, isAuthorized} = props;
+  const sortedReviews = getSortedByDate(reviews);
 
   return (
     <section className="property__reviews reviews">
       <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
       <ul className="reviews__list">
-        {reviews.map((review) => (
+        {sortedReviews.map((review) => (
           <ReviewItem
             review = {review}
             key = {review.id}
@@ -27,7 +29,6 @@ const ReviewsBlock = (props) => {
         />
         : false
       }
-
     </section>
   );
 };
