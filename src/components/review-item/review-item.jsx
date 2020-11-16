@@ -1,5 +1,6 @@
-import React from "react";
 import {reviewItemTypes} from "../../prop-types";
+import moment from "moment";
+import React from "react";
 
 const ReviewItem = (props) => {
   const {review} = props;
@@ -35,7 +36,7 @@ const ReviewItem = (props) => {
         <p className="reviews__text">
           {description}
         </p>
-        <time className="reviews__time" dateTime="2019-04-24">{date}</time>
+        <time className="reviews__time" dateTime={date}>{moment(date, `YYYY-MM-DD`).format(`MMMM YYYY`)}</time>
       </div>
     </li>
   );
