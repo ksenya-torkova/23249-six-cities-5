@@ -64,21 +64,22 @@ class ReviewForm extends PureComponent {
 
   _handleSubmit(evt) {
     evt.preventDefault();
-    const {rating, review, id} = this.props;
-    this.props.postReview(rating, review, id);
+    const {onSubmit, rating, review, id} = this.props;
 
+    onSubmit(id, {
+      review,
+      rating
+    });
   }
 }
 
 ReviewForm.propTypes = reviewFormTypes;
 
-const mapDispatchToProps = (dispatch) => ({
-  postReview(rating, review, id) {
-    // тут id есть
-    // console.log(id);
-    dispatch(postReview(rating, review, id));
+const mapDispatchToProps = ((dispatch) => ({
+  onSubmit(id, commentData) {
+    dispatch(postReview(id, commentData));
   }
-});
+}));
 
 export {ReviewForm};
 export default connect(undefined, mapDispatchToProps)(ReviewForm);

@@ -56,16 +56,11 @@ const fetchNearOffersById = (id) => (dispatch, _getState, api) => (
     })
 );
 
-const postReview = ({rating, review: comment, id}) => (dispatch, _getState, api) => (
-  // но при отправке формы в url вместо id - undefined
+const postReview = (id, {review: comment, rating}) => (dispatch, _getState, api) => (
   api.post(`/comments/${id}`, {comment, rating})
     .then(({data}) => {
-      dispatch(ActionCreator.setUserReview(
-          data.map((it) => adaptReview(it))
-      ));
-    })
-    .catch((err) => {
-      throw err;
+      const offerModifiedComments = data.map((it) => adaptReview(it));
+      dispatch(ActionCreator.setUserReview(offerModifiedComments));
     })
 );
 

@@ -48,9 +48,9 @@ const ActionCreator = {
     payload: userInfo,
   }),
 
-  setUserReview: (data) => ({
+  setUserReview: (comments) => ({
     type: ActionType.SET_USER_REVIEW,
-    payload: data,
+    payload: comments,
   }),
 
   updateActiveCardId: (id) => ({
