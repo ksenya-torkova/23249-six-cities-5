@@ -10,10 +10,10 @@ const sortingItemsNames = Object.values(SotringType);
 
 const Sorting = (props) => {
   const {
-    updateSortingType,
     isOpen,
     onSortingClick,
-    sortingType
+    sortingType,
+    updateSortingType,
   } = props;
   const openClassName = isOpen ? `places__options--opened` : ``;
 

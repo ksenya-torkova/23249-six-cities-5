@@ -5,14 +5,13 @@ import {selectCityOffers, getAuthorizationStatus} from "../../selectors";
 import Favorites from "../favorites/favorites";
 import Login from "../login/login";
 import MainPage from "../main-page/main-page";
-import withPrivateRoute from "../../hocs/with-private-route/with-private-route";
 import React from "react";
 import Room from "../room/room";
+import withPrivateRoute from "../../hocs/with-private-route/with-private-route";
 
 const App = (props) => {
   const {
     authorizationStatus,
-    reviews,
     offers,
   } = props;
 
@@ -27,12 +26,15 @@ const App = (props) => {
             offers = {offers}
           />
         </Route>
-        <Route path="/offer/:id" exact>
-          <Room
-            offers = {offers}
-            reviews = {reviews}
-          />
-        </Route>
+        <Route path = "/offer/:id" exact
+          render = {({match}) => {
+            return (
+              <Room
+                offerId = {match.params.id}
+              />
+            );
+          }}
+        />
         <Route
           exact
           path = {`/favorites`}

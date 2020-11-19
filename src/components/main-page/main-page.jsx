@@ -1,6 +1,7 @@
 import {City} from "../../const";
 import {connect} from 'react-redux';
 import {getCity, getCities} from "../../selectors";
+import {getOffersByCity} from "../../utils";
 import {mainPageTypes} from "../../prop-types";
 import CardList from "../cards-list/cards-list";
 import CitiesList from "../cities-list/cities-list";
@@ -10,7 +11,6 @@ import NoOffers from "../no-offers/no-offers";
 import React from "react";
 import SortingWithDropdown from '../sorting/sorting';
 import withActiveCard from "../../hocs/with-active-card/with-active-card";
-import {getOffersByCity} from "../../utils";
 
 const WithActiveCard = withActiveCard(CardList);
 

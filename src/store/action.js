@@ -1,11 +1,15 @@
 const ActionType = {
   CHANGE_CITY: `CHANGE_CITY`,
   LOAD_OFFERS: `LOAD_OFFERS`,
+  LOAD_REVIEWS: `LOAD_REVIEWS`,
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
   SET_USER_INFO: `SET_USER_INFO`,
   UPDATE_ACTIVE_CARD_ID: `UPDATE_ACTIVE_CARD_ID`,
   UPDATE_OFFERS: `UPDATE_OFFERS`,
   UPDATE_SORTING_TYPE: `UPDATE_SORTING_TYPE`,
+  LOAD_OFFER_BY_ID: `LOAD_OFFER_BY_ID`,
+  LOAD_NEAR_OFFERS_BY_ID: `LOAD_NEAR_OFFERS_BY_ID`,
+  SET_USER_REVIEW: `SET_USER_REVIEW`,
 };
 
 const ActionCreator = {
@@ -19,14 +23,34 @@ const ActionCreator = {
     payload: loadedOffers
   }),
 
+  loadReviews: (loadedReviews) => ({
+    type: ActionType.LOAD_REVIEWS,
+    payload: loadedReviews
+  }),
+
+  loadOfferById: (loadedOfferById) => ({
+    type: ActionType.LOAD_OFFER_BY_ID,
+    payload: loadedOfferById
+  }),
+
+  loadNearOffersById: (loadedNearOffersById) => ({
+    type: ActionType.LOAD_NEAR_OFFERS_BY_ID,
+    payload: loadedNearOffersById
+  }),
+
   requireAuthorization: (status) => ({
     type: ActionType.REQUIRED_AUTHORIZATION,
     payload: status,
   }),
 
-  setUserInfo: (data) => ({
+  setUserInfo: (userInfo) => ({
     type: ActionType.SET_USER_INFO,
-    payload: data,
+    payload: userInfo,
+  }),
+
+  setUserReview: (comments) => ({
+    type: ActionType.SET_USER_REVIEW,
+    payload: comments,
   }),
 
   updateActiveCardId: (id) => ({

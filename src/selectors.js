@@ -2,12 +2,16 @@ import {createSelector} from "reselect";
 import {NameSpace} from "./store/reducers/root-reducer";
 import {SotringType} from "./const";
 
-const getOffers = (state) => state[NameSpace.DATA].offers;
-const getCity = (state) => state[NameSpace.APP].city;
+const getAuthorizationStatus = (state) => state[NameSpace.USER].authorizationStatus;
 const getCities = (cities) => Object.values(cities);
-const getSortingType = (state) => state[NameSpace.APP].sortingType;
-
+const getCity = (state) => state[NameSpace.APP].city;
 const getHoveredOfferId = (state) => state[NameSpace.APP].activeCardId;
+const getNearOffers = (state) => state[NameSpace.DATA].nearOffersById;
+const getOfferByIdFromServer = (state) => state[NameSpace.DATA].offerById;
+const getOffers = (state) => state[NameSpace.DATA].offers;
+const getReviewsById = (state) => state[NameSpace.DATA].reviews;
+const getSortingType = (state) => state[NameSpace.APP].sortingType;
+const getUserInfo = (state) => state[NameSpace.USER].userInfo;
 
 const selectCityOffers = createSelector([getOffers, getSortingType, getCity], (offers, sortingType, city) => {
   const cityOffers = offers.filter((offer) => offer.city.name === city);
@@ -29,16 +33,16 @@ const selectCityOffers = createSelector([getOffers, getSortingType, getCity], (o
   return false;
 });
 
-const getAuthorizationStatus = (state) => state[NameSpace.USER].authorizationStatus;
-const getUserName = (state) => state[NameSpace.USER].userInfo.name;
-
 export {
   getAuthorizationStatus,
   getCities,
   getCity,
   getHoveredOfferId,
+  getNearOffers,
+  getOfferByIdFromServer,
   getOffers,
+  getReviewsById,
   getSortingType,
-  getUserName,
+  getUserInfo,
   selectCityOffers,
 };

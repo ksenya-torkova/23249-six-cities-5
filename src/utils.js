@@ -1,3 +1,15 @@
+import {MAX_REVIEWS_AMOUNT} from "./const";
+import moment from "moment";
+
+const adaptAuthInfo = (data) => {
+  return {
+    id: data[`id`],
+    email: data[`email`],
+    avatarUrl: data[`avatar_url`],
+    isPro: data[`is_pro`],
+  };
+};
+
 const adaptOffer = (offer) => {
   return {
     id: offer[`id`],
@@ -35,18 +47,23 @@ const adaptOffer = (offer) => {
   };
 };
 
+const adaptReview = (review) => {
+  return {
+    id: review[`id`],
+    date: review[`date`],
+    description: review[`comment`],
+    rating: review[`rating`],
+    userInfo: {
+      avatar: review[`user`][`avatar_url`],
+      name: review[`user`][`name`],
+      id: review[`user`][`id`],
+      isSuper: review[`user`][`is_pro`],
+    },
+  };
+};
+
 const extend = (a, b) => {
   return Object.assign({}, a, b);
-};
-
-const getRandomInteger = function (min, max) {
-  return Math.floor(min + Math.random() * (max + 1 - min));
-};
-
-const getRandomArrayItem = (arr) => {
-  const randomIndex = getRandomInteger(0, arr.length - 1);
-
-  return arr[randomIndex];
 };
 
 const getOffersByCity = (offers, city) => {
@@ -54,4 +71,17 @@ const getOffersByCity = (offers, city) => {
   return offersByCity;
 };
 
-export {adaptOffer, extend, getRandomInteger, getRandomArrayItem, getOffersByCity};
+const getSortedByDate = (reviews) => {
+  const clonedReviews = reviews.slice();
+  clonedReviews.sort((a, b) => moment(b.date).diff(a.date));
+  return clonedReviews.slice(0, MAX_REVIEWS_AMOUNT);
+};
+
+export {
+  adaptAuthInfo,
+  adaptOffer,
+  adaptReview,
+  extend,
+  getOffersByCity,
+  getSortedByDate,
+};

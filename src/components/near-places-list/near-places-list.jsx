@@ -14,9 +14,7 @@ const NearPlacesList = (props) => {
             cardData = {room}
             key = {room.id}
           />
-        ))
-        }
-
+        ))}
       </div>
     </section>
   );

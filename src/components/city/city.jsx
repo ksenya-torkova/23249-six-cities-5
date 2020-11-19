@@ -1,5 +1,5 @@
-import React from "react";
 import {cityTypes} from "../../prop-types";
+import React from "react";
 
 const City = (props) => {
   const {city, isCurrent, onCityClick} = props;

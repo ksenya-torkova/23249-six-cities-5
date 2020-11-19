@@ -1,8 +1,9 @@
+import {ActionCreator} from '../../store/action';
+import {connect} from 'react-redux';
+import {fetchReviewsList} from "../../store/api-actions";
 import {Link} from "react-router-dom";
 import {placeCardTypes} from "../../prop-types";
 import React from "react";
-import {connect} from 'react-redux';
-import {ActionCreator} from '../../store/action';
 
 const DEFAULT_ID = 0;
 
@@ -12,17 +13,18 @@ const PlaceCard = (props) => {
     additionalContentClass,
     additionalImageClass,
     cardData,
+    getReviewsAction,
     updateActiveCardId,
   } = props;
 
   const {
     id,
-    previewImage,
     isBookmark,
     isPremium,
-    title,
+    previewImage,
     price,
     rating,
+    title,
     type,
   } = cardData;
 
@@ -32,6 +34,9 @@ const PlaceCard = (props) => {
       onMouseEnter = {() => updateActiveCardId(id)}
       onMouseLeave = {() => updateActiveCardId(DEFAULT_ID)}
       id = {id}
+      onClick = {() => {
+        getReviewsAction(id);
+      }}
     >
 
       {isPremium ?
@@ -40,7 +45,8 @@ const PlaceCard = (props) => {
         </div> : ``}
 
       <div className={`place-card__image-wrapper ${additionalImageClass}`}>
-        <Link to = {`offer/${cardData.id}`}
+        <Link
+          to = {`offer/${id}`}
           onClick = {() => updateActiveCardId(DEFAULT_ID)}
         >
           <img className="place-card__image" src={previewImage} width="260" height="200" alt="Place image"/>
@@ -69,14 +75,17 @@ const PlaceCard = (props) => {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `${rating * 20}%`}}></span>
+            <span style={{width: `${Math.round(rating) * 20}%`}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to = {`offer/${cardData.id}`}
+          <Link
+            to = {`offer/${id}`}
             onClick = {() => updateActiveCardId(DEFAULT_ID)}
-          >{title}</Link>
+          >
+            {title}
+          </Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
@@ -89,6 +98,10 @@ PlaceCard.propTypes = placeCardTypes;
 const mapDispatchToProps = ((dispatch) => ({
   updateActiveCardId(id) {
     dispatch(ActionCreator.updateActiveCardId(id));
+  },
+
+  getReviewsAction(id) {
+    dispatch(fetchReviewsList(id));
   }
 }));
 
