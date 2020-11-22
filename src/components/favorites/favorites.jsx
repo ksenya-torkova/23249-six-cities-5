@@ -53,4 +53,5 @@ const Favorites = (props) => {
 
 Favorites.propTypes = favoriteTypes;
 
+export {Favorites};
 export default React.memo(Favorites);

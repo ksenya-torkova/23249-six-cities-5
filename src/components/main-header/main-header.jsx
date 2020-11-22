@@ -58,5 +58,5 @@ const mapStateToProps = (state) => ({
 
 const MainHeaderMemo = React.memo(MainHeader);
 
-export {MainHeaderMemo};
+export {MainHeader};
 export default connect(mapStateToProps)(MainHeaderMemo);

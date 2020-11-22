@@ -47,5 +47,5 @@ CitiesList.propTypes = citiesListTypes;
 
 const CitiesListMemo = React.memo(CitiesList);
 
-export {CitiesListMemo};
+export {CitiesList};
 export default connect(mapStateToProps, mapDispatchToProps)(CitiesListMemo);

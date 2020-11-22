@@ -19,4 +19,5 @@ const CitiesPlaceCard = (props) => {
 
 CitiesPlaceCard.propTypes = citiesPlaceCardTypes;
 
+export {CitiesPlaceCard};
 export default React.memo(CitiesPlaceCard);

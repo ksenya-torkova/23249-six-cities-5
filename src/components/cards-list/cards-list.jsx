@@ -19,4 +19,5 @@ const CardList = (props) => {
 
 CardList.propTypes = cardListTypes;
 
+export {CardList};
 export default React.memo(CardList);
