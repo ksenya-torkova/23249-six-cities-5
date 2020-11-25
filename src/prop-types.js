@@ -31,7 +31,6 @@ const citiesListTypes = {
   changeCity: PropTypes.func.isRequired,
   cities: PropTypes.array.isRequired,
   currentCity: PropTypes.string.isRequired,
-  sortingType: PropTypes.string.isRequired,
 };
 
 const citiesPlaceCardTypes = {

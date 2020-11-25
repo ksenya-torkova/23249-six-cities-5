@@ -26,4 +26,5 @@ const FavoritesLocationsItem = (props) => {
 
 FavoritesLocationsItem.propTypes = favoritesLocationsItemTypes;
 
+export {FavoritesLocationsItem};
 export default React.memo(FavoritesLocationsItem);

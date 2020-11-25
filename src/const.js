@@ -14,39 +14,37 @@ const City = {
 
 const MAX_REVIEWS_AMOUNT = 10;
 
-const mockOffer = {
-  id: 13,
-  cityName: City.AMSTERDAM,
-  coordinatesCity: {
-    lat: 52.3909553943508,
-    lng: 4.85309666406198,
-    zoom: 12
+const mockCards = [{
+  id: 101,
+  city: {
+    name: `Amsterdam`,
+    coordinates: {
+      latitude: 52.38333,
+      longitude: 4.9
+    }
   },
   coordinates: {
-    lat: 52.3909553943508,
-    lng: 4.85309666406398,
-    zoom: 12
+    latitude: 52.3909553943508,
+    longitude: 4.85309666406198
   },
-  title: `Beautiful & luxurious studio at great location`,
-  preview: `http://picsum.photos/248/152?r=123`,
-  photos: [`http://picsum.photos/248/152?r=123}`],
-  desc: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui dicta minus molestiae vel beatae natus eveniet ratione temporibus aperiam harum alias officiis assumenda officia quibusdam deleniti eos cupiditate dolore doloribus!`,
+  previewImage: `img/apartment-02.jpg`,
+  pictures: [`img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`, `img/apartment-02.jpg`],
   isPremium: true,
-  rating: 4.3,
-  type: `apartment`,
-  bedroomsCount: 2,
-  maxGuests: 1,
-  costPerNight: 100,
-  features: [`Wifi`, `Heating`, `Kitchen`, `Cable TV`],
-  isFavorite: true,
-  owner:
-  {
-    id: 373,
-    avatar: `http://picsum.photos/74/74?r=123}`,
-    name: `Onik_373`,
-    isSuper: false
-  }
-};
+  isBookmark: true,
+  price: 100,
+  title: `Wood and stone place`,
+  type: `Apartment`,
+  rating: 5,
+  description: `Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium`,
+  bedroomsMax: `4 Bedrooms`,
+  guestsMax: `Max 5 adults`,
+  amenities: [`Wi-Fi`, `Heating`, `Kitchen`, `Parking`, `Flowers`, `Dishwasher`, `Towels`, `TV`],
+  hostInfo: {
+    avatar: `img/avatar-max.jpg`,
+    name: `Ross`,
+    isSuper: true,
+  },
+}];
 
 const mockReview = {
   id: 37,
@@ -71,7 +69,7 @@ export {
   AuthorizationStatus,
   City,
   MAX_REVIEWS_AMOUNT,
-  mockOffer,
+  mockCards,
   mockReview,
   SotringType,
 };
