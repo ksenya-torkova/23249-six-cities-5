@@ -1,23 +1,28 @@
-import {BrowserRouter} from "react-router-dom";
-import {FavoritesLocationsItem} from "./favorites-locations-item";
-import {mockCards} from "../../const";
-import {Provider} from "react-redux";
-import configureStore from "redux-mock-store";
+import {Login} from "./login";
 import React from "react";
 import renderer from "react-test-renderer";
+import {BrowserRouter} from "react-router-dom";
+import {Provider} from "react-redux";
+import configureStore from "redux-mock-store";
 
+const noop = () => {};
 const mockStore = configureStore([]);
 
-it(`Should FavoritesItem render properly`, () => {
-  const store = mockStore({});
+it(`Should CardList render properly`, () => {
+  const store = mockStore({
+    USER: {
+      authorizationStatus: false,
+      userInfo: {email: ``},
+    },
+  });
 
   const tree = renderer
     .create(
         <Provider store={store}>
           <BrowserRouter>
-            <FavoritesLocationsItem
+            <Login
               city={`Amsterdam`}
-              offers={mockCards}
+              onSubmit={noop}
             />
           </BrowserRouter>
         </Provider>

@@ -1,5 +1,5 @@
 import {BrowserRouter} from "react-router-dom";
-import {FavoritesLocationsItem} from "./favorites-locations-item";
+import {CitiesPlaceCard} from "./cities-place-card";
 import {mockCards} from "../../const";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
@@ -7,17 +7,21 @@ import React from "react";
 import renderer from "react-test-renderer";
 
 const mockStore = configureStore([]);
+const noop = () => {};
 
-it(`Should FavoritesItem render properly`, () => {
-  const store = mockStore({});
+it(`Should CitiesPlaceCard render correctly`, () => {
+  const store = mockStore({
+    APP: {activeCardId: -1},
+  });
 
   const tree = renderer
     .create(
         <Provider store={store}>
           <BrowserRouter>
-            <FavoritesLocationsItem
-              city={`Amsterdam`}
-              offers={mockCards}
+            <CitiesPlaceCard
+              cardData={mockCards[0]}
+              onMouseEnter={noop}
+              onMouseLeave={noop}
             />
           </BrowserRouter>
         </Provider>

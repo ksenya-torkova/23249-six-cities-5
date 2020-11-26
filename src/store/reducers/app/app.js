@@ -5,9 +5,9 @@ import {extend} from "../../../utils";
 const offerCards = [];
 
 const initialState = {
+  activeCardId: 0,
   cities: Object.values(City),
   city: City.PARIS,
-  activeCardId: 0,
   sortingType: SotringType.POPULAR,
 };
 

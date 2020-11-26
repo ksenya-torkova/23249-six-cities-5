@@ -35,6 +35,8 @@ const citiesListTypes = {
 
 const citiesPlaceCardTypes = {
   cardData: PropTypes.shape(cardData).isRequired,
+  onMouseEnter: PropTypes.func,
+  onMouseLeave: PropTypes.func,
 };
 
 const cityTypes = {

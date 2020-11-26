@@ -1,5 +1,5 @@
 import {BrowserRouter} from "react-router-dom";
-import {FavoritesLocationsItem} from "./favorites-locations-item";
+import {FavoritesCard} from "./favorites-card";
 import {mockCards} from "../../const";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
@@ -15,9 +15,8 @@ it(`Should FavoritesItem render properly`, () => {
     .create(
         <Provider store={store}>
           <BrowserRouter>
-            <FavoritesLocationsItem
-              city={`Amsterdam`}
-              offers={mockCards}
+            <FavoritesCard
+              cardData={mockCards[0]}
             />
           </BrowserRouter>
         </Provider>
