@@ -1,7 +1,7 @@
 import {CitiesList} from "./cities-list";
+import {City} from "../../const";
 import React from "react";
 import renderer from "react-test-renderer";
-import {City} from "../../const";
 
 const noop = () => {};
 

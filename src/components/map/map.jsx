@@ -10,7 +10,6 @@ import {getHoveredOfferId, getOfferByIdFromServer, getCity} from "../../selector
 const Map = (props) => {
   const {offers, isMainPageMap, offerById, hoveredOfferId, activeCity} = props;
   const mapRef = createRef();
-  console.log(offers);
 
   useEffect(() => {
     const icon = leaflet.icon({

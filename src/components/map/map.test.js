@@ -1,9 +1,9 @@
-import React from "react";
+import {mockCards} from "../../const";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
-import renderer from "react-test-renderer";
 import Map from "./map.jsx";
-import {mockCards} from "../../const";
+import React from "react";
+import renderer from "react-test-renderer";
 
 const mockStore = configureStore([]);
 
