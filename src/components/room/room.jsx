@@ -30,7 +30,6 @@ class Room extends PureComponent {
   render() {
     const {
       authorizationStatus,
-      city,
       nearOffers,
       offerId,
       reviews,
@@ -166,12 +165,12 @@ class Room extends PureComponent {
                 />
               </div>
             </div>
-
-            <Map
-              offers = {nearOffers}
-              className = {`property__map`}
-              city = {city}
-            />
+            <section className="property__map map">
+              <Map
+                offers={nearOffers}
+                isMainPageMap={false}
+              />
+            </section>
           </section>
 
           <div className="container">

@@ -85,7 +85,6 @@ const mainPageTypes = {
 };
 
 const mapTypes = {
-  className: PropTypes.string.isRequired,
   offers: PropTypes.arrayOf(PropTypes.shape(cardData)).isRequired,
 };
 
@@ -127,7 +126,6 @@ const reviewsBlockTypes = {
 
 const roomTypes = {
   reviews: PropTypes.arrayOf(PropTypes.shape(reviewData)).isRequired,
-  city: PropTypes.string.isRequired,
 };
 
 const sortingItemTypes = {
